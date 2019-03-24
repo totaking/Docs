@@ -76,7 +76,7 @@ The Ubuntu build environment needs to meet the following requirements:
 
 - System version: `Ubuntu 16.04.1 and above`
 - git:`2.19.1 and above`
-- Compiler: `gcc(4.9.2+)`
+- Compiler: `gcc(4.9.2+)`、`g++(5.0+)`
 - go language development kit: `go(1.7+)`
 - cmake:`3.0+`
 
