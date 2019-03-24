@@ -76,7 +76,7 @@ $ sudo dpkg -i platon-all-ubuntu-amd64-0.5.0.deb
 
 - 系统版本：`Ubuntu 16.04.1 及以上`，
 - git：`2.19.1及以上`
-- 编译器：`gcc(4.9.2+)`
+- 编译器：`gcc(4.9.2+)`、`g++(5.0+)`
 - go语言开发包：`go(1.7+)`
 - cmake:`3.0+` 
 
