@@ -387,21 +387,23 @@ $ nohup ./platon ... --nodekey "./data1/platon/nodekey" >> node1.log 2>&1 &
 | --mpc.ice   | （可选）mpc节点初始化ice配置，用以配置MPC通信端口，默认端口8201|
 | --mpc.actor | （可选）mpc计算指定钱包地址，与隐私合约参与方地址保持一致，若启动时候配置该参数，可后续通过RPC接口`eth_setActor(Address)`进行设置） |
 
-若在一台机器上启用多个计算节点，需启用 `--mpc.ice` 选项，以显式声明的方式开启MPC计算功能
+> **注意： 若在一台机器上启用多个计算节点，需启用 `--mpc.ice` 选项配置不同通信端口**
 
 **3.配置文件设置**
 
-若节点启动时启用 `--mpc.ice` 选项，则需要预先在节点工作目录下配置 `{mpc-ice-config-file}` 文件，用以配置 `MPC通信端口`。配置文件内容如下
+若节点启动时启用 `--mpc.ice` 选项，则需要预先在节点工作目录下配置 `{mpc-ice-config-file}` 文件, 如：`cfg.server.config`，用以配置 `MPC通信端口`。配置文件内容如下，如需修改端口，只需修改8201为所需端口即可。
 
 ```
 MpcNode.Server.Endpoints=default -p 8201
 ```
 
-**注意**：
+**4. 启动节点**
 
-**`-p` 后面的端口默认8201，可自行修改但不可与系统其他端口重复。**
+```
+$ ./platon --identity "platon" --datadir ./data --port 16789 --rpcaddr 0.0.0.0 --rpcport 6789 --rpcapi "db,eth,net,web3,admin,personal" --rpc --nodiscover --nodekey "./data/platon/nodekey" --mpc --mpc.ice ./{mpc-ice-config-file} --mpc.actor 0xa7e6d8a00ba33ea732b2c924e1edc4e4b753e9ca
+```
 
-**4.查看日志**
+**5.查看日志**
 
 在启动节点时加上以上参数后，在 ./log/platon_mpc_xxx.log(xxx为当前节点进程号)日志中会输出如下信息：
 
