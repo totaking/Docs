@@ -9,7 +9,7 @@ This document is a PlatON installation guide on Ubuntu and is available in four 
 
 > Note: 
 > - The official binary package, PPA source and Debian package support version 16.04 and above. 
-> - When installing through official binary packages, PPA sources and Debian packages, the native CPU architectures need to be above 2.0 and 2.0, otherwise PlatON needs to be installed by compiling and encoding.
+> - When installing through official binary packages, PPA sources and Debian packages, the native CPU architectures need to be 2.0 and above , otherwise PlatON needs to be installed by compiling and encoding.
 
 ### PPA based Installation
 
