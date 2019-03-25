@@ -378,7 +378,7 @@ Before starting the MPC function, you need to ensure that the MPC-related depend
 Parameters Description:
 
 | Options     | Description                                                  |
-| :---------- | :----------------------------------------------------------- |
+|:-----------|:----------------------------------------------------------- |
 | --mpc       | (Required) Turn on mpc calculation function                  |
 | --mpc.ice   | (Optional) The mpc node initializes the ice configuration. Used to configure MPC communication port, default port is 8201 |
 | --mpc.actor | (Optional) mpc calculates the specified wallet address, which is consistent with the privacy contract participant address (can be set via rpc interface eth_setActor(Address)) |
