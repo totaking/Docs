@@ -2,7 +2,7 @@
 
 ## 安装PlatON
 
-PlatON支持不同的Linux、Windows、Docker等运行环境，各平台安装指南请参考[PlatON安装指南](zh-cn/basics/[Chinese-Simplified]-安装指南)。
+PlatON支持Linux、Windows、Docker多种运行环境，各环境安装指南请参考[PlatON安装指南](zh-cn/basics/[Chinese-Simplified]-安装指南)。
 
 本文假设Ubuntu环境下工作目录为 ~/platon-node ，Windows环境下工作目录为 D:\platon-node。注意后续均在工作目录下进行。
 
