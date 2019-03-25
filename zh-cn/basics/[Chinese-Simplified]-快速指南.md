@@ -28,7 +28,7 @@ PlatON支持Linux、Windows、Docker多种运行环境，各环境安装指南�
 D:\platon-node> platon.exe attach http://localhost:6789
 ```
 
-- Linux命令行：
+- Linux命令行
 
 
 ```
