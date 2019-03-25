@@ -22,7 +22,7 @@ PlatON支持Linux、Windows、Docker多种运行环境，各环境安装指南�
 ### 连接到节点
 
 可通过以下`http`方式 进入`platon`控制台
-- Windows命令行
+- Windows命令行:
 
 ```
 D:\platon-node> platon.exe attach http://localhost:6789
