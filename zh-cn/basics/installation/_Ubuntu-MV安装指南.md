@@ -135,9 +135,13 @@ $ tar -xvzf platon-mpclib-ubuntu-amd64-0.5.0.tar.gz
 $ mv platon-mpclib-ubuntu-amd64-0.5.0 platon-mpclib
 
 #将解压后的该路径添加到环境变量
-$ grep "export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:~/home/path/to/platon-mpclib" ~/.bashrc || echo "export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:~/home/path/to/platon-mpclib" >> ~/.bashrc
+$ grep "export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:/path/to/platon-mpclib" ~/.bashrc || echo "export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:/path/to/platon-mpclib" >> ~/.bashrc
 
-$ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/home/path/to/platon-mpclib
+$ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/path/to/platon-mpclib
+
+# 检查是否配安装成功
+$ env | grep LD_LIBRARY_PATH
+LD_LIBRARY_PATH=:/path/to/platon-mpclib
 ```
 
 - **编译MPC库源码安装** 

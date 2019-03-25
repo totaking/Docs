@@ -135,9 +135,13 @@ $ tar -xvzf platon-mpclib-ubuntu-amd64-0.5.0.tar.gz
 $ mv platon-mpclib-ubuntu-amd64-0.5.0 platon-mpclib
 
 #Add the extracted path to the environment variable
-$ grep "export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:~/home/path/to/platon-mpclib" ~/.bashrc || echo "export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:~/home/path/to/platon-mpclib" > > ~/.bashrc
+$ grep "export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:/path/to/platon-mpclib" ~/.bashrc || echo "export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:/path/to/platon-mpclib" >> ~/.bashrc
 
-$ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/home/path/to/platon-mpclib
+$ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/path/to/platon-mpclib
+
+# Check if install success
+$ env | grep LD_LIBRARY_PATH
+LD_LIBRARY_PATH=:/home/path/to/platon-mpclib
 ```
 
 - **Compile library source installation**
