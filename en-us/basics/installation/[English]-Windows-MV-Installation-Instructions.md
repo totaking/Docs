@@ -5,7 +5,7 @@ The Windows environment supports three installation modes:
 - [Binary package](#Binary-package-based-Installation)
 - [Source code](#Source-code-based-Installation)
 
-> Note：When installing through official binary packages and Chocolate, the native CPU architectures need to be above 2.0 and 2.0, otherwise PlatON needs to be installed by compiling and encoding.
+> Note：When installing through official binary packages and Chocolate, the native CPU architectures need to be  2.0 and above, otherwise PlatON needs to be installed by compiling and encoding.
 
 ### Chocolatey based Installation
 We use the Chocolatey package manager to install the required build tools. If you don’t have Chocolatey, follow the instructions on [https://chocolatey.org](https://chocolatey.org).
