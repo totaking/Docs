@@ -36,7 +36,7 @@ PlatON 将交易执行跟区块链共识解耦，在链下构建可扩展Trustle
 
 **合约账户**没有私钥，由代码控制，合约账户地址在部署合约时产生。与普通账户不同，合约账户不能自行发起新的交易。每当合约账户收到一条消息，合约内部的代码就会被激活，允许它对内部存储进行读取和写入，以及发送其它消息或者创建合约。
 ### 智能合约
-从技术角度看，PlatON计算网络本质上是一个去中心化的FaaS平台，相应地，智能合约可以认为就是FaaS上的function。PlatON中的智能合约分为三类。
+从技术角度看，PlatON计算网络本质上是一个去中心化的FaaS(Functions as a Service)平台，相应地，智能合约可以认为就是FaaS上的function。PlatON中的智能合约分为三类。
 
 <img src="zh-cn/basics/images/contracts-cn.png"  alt="contracts" />
 
