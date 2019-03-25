@@ -3,7 +3,7 @@
 
 ## Installing PlatON
 
-PlatON supports various Linux flavors as well as Windows and Docker. For each platform installation instructions, please refer to [Installation Instructions](en-us/basics/[English]-Installation-Instructions).
+PlatON supports Linux, Windows and Docker operating environments. Please refer to the [Installation Instructions](en-us/basics/[English]-Installation-Instructions) for each environment.
 
 We assumes that the working directory is `~/platon-node` on Ubuntu and is `D:\platon-node` on Windows. Note that the following operations are performed in the working directory.
 
