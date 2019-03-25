@@ -383,7 +383,7 @@ Parameters Description:
 | --mpc.ice   | (Optional) The mpc node initializes the ice configuration. Used to configure MPC communication port, default port is 8201 |
 | --mpc.actor | (Optional) mpc calculates the specified wallet address, which is consistent with the privacy contract participant address (can be set via rpc interface eth_setActor(Address)) |
 
-3. Configuration file settings. 
+**3. Configuration file settings **
 
 If the `--mpc.ice` option is enabled when the node is started, you need to configure the `{mpc-ice-config-file}` file in the node working directory to configure the `MPC communication port` . File configuration is as follows, If you need to modify the port, you only need to modify 8201 as the required port.
 
@@ -391,13 +391,13 @@ If the `--mpc.ice` option is enabled when the node is started, you need to confi
 MpcNode.Server.Endpoints=default -p 8201
 ```
 
-4. Start the node
+**4. Start the node**
 
 ```
 $ ./platon --identity "platon" --datadir ./data --port 16789 --rpcaddr 0.0.0.0 --rpcport 6789 --rpcapi "db,eth,net,web3,admin,personal" --rpc --nodiscover --nodekey "./data/platon/nodekey" --mpc --mpc.ice ./{mpc-ice-config-file} --mpc.actor 0xa7e6d8a00ba33ea732b2c924e1edc4e4b753e9ca
 ```
 
-6. View the log
+**5. View the log**
 
 When the node is started with the above parameters, the following information will be output in the`./ log / platon_mpc_xxx. log (xxxx is the current node process number)`:
 
