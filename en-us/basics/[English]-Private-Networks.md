@@ -399,7 +399,7 @@ $ ./platon --identity "platon" --datadir ./data --port 16789 --rpcaddr 0.0.0.0 -
 
 **5. View the log**
 
-When the node is started with the above parameters, the following information will be output in the`./ log / platon_mpc_xxx. log (xxxx is the current node process number)`:
+When the node is started with the above parameters, the following information will be output in the`./ log / platon_mpc_xxx. log` (xxxx is the current node process number):
 
 ```
 MPC ENGINE INIT SUCCESS
