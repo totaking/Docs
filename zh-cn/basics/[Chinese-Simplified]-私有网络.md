@@ -403,7 +403,7 @@ MpcNode.Server.Endpoints=default -p 8201
 
 **4.查看日志**
 
-在启动节点时加上以上参数后，在 ./log/platon_mpc_xxx.log(xxx为当前节点进程号)如打印如下：
+在启动节点时加上以上参数后，在 ./log/platon_mpc_xxx.log(xxx为当前节点进程号)日志中会输出如下信息：
 
 ```
 MPC ENGINE INIT SUCCESS
