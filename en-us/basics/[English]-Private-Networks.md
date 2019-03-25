@@ -364,59 +364,42 @@ $ ./platon --identity "platon" --datadir ./data1 --port 16790 --rpcaddr 0.0.0.0 
 
 ## Enabling MPC for a node
 
-The MPC Compute feature is a secure multi-party computing feature supported by the `PlatON` platform that provides the infrastructure for privacy calculations. More MPC related please [reference here](en-us/development/[English]-PlatON-Privacy-Contract-Guide). **MPC calculation function can only be enabled in [Cluster Environment](#PlatON-%e9%9b%86%e7%be%a4%e7%8e%af%e5%a2%83)**
+The MPC Compute feature is a secure multi-party computing feature supported by the `PlatON` platform that provides the infrastructure for privacy calculations. More MPC related please [reference here](en-us/development/[English]-PlatON-Privacy-Contract-Guide). Since MPC computing must be participated by two or more nodes, users can build two or more nodes by referring to the [Cluster Environment](#PlatON-%e9%9b%86%e7%be%a4%e7%8e%af%e5%a2%83). Note that the nodes involved in computing must all turn on the MPC function. The start-up mode is as follows:
 
-The following operations are also required when starting the node:
+**1. Check the dependency library**
 
-1. Check the dependency library
+Before starting the MPC function, you need to ensure that the MPC-related dependency libraries have been installed. If not, please refer to [here](#en-us/basics/installation/%5BEnglish%5D-Ubuntu-MV-Installation-Instructions?id=dependency-package-installation) for installation.
 
-```bash
-$ env | grep LD_LIBRARY_PATH
-LD_LIBRARY_PATH=/home/platon/platon-node/mpclib
-```
-
-2. MPC computing service communication uses a separate port, the default is 8201. If multiple compute nodes are enabled on a single machine, enable the `--mpc.ice` option to enable MPC calculations in an explicitly declared manner.
+**2. Add the following parameters at node startup**
 
 ```
 --mpc --mpc.ice ./{mpc-ice-config-file} --mpc.actor 0xa7e6d8a00ba33ea732b2c924e1edc4e4b753e9ca
 ```
-
-Option Description:
+Parameters Description:
 
 | Options     | Description                                                  |
 | :---------- | :----------------------------------------------------------- |
 | --mpc       | (Required) Turn on mpc calculation function                  |
-| --mpc.ice   | (Optional) The mpc node initializes the ice configuration. The configuration file is ./{mpc-ice-config-file} |
+| --mpc.ice   | (Optional) The mpc node initializes the ice configuration. Used to configure MPC communication port, default port is 8201 |
 | --mpc.actor | (Optional) mpc calculates the specified wallet address, which is consistent with the privacy contract participant address (can be set via rpc interface eth_setActor(Address)) |
 
+3. Configuration file settings. 
 
-3. Configuration file settings. If the `--mpc.ice` option is enabled when the node is started, you need to configure the `{mpc-ice-config-file}` file in the node working directory to configure the `MPC communication port` and keep the default port. . File configuration is as follows
+If the `--mpc.ice` option is enabled when the node is started, you need to configure the `{mpc-ice-config-file}` file in the node working directory to configure the `MPC communication port` . File configuration is as follows, If you need to modify the port, you only need to modify 8201 as the required port.
 
 ```
 MpcNode.Server.Endpoints=default -p 8201
 ```
 
-> **note: The port behind `-p` defaults to 8201 and can be modified by itself but not duplicated by other ports in the system. **
-
-4. Since two nodes are deployed on the same machine, two ports are specified for differentiation.
+4. Start the node
 
 ```
-$ touch cfg.server0.config
-$ echo "MpcNode.Server.Endpoints=default -p 10001" > cfg.server0.config
-
-$ touch cfg.server1.config
-$ echo "MpcNode.Server.Endpoints=default -p 10002" > cfg.server1.config
+$ ./platon --identity "platon" --datadir ./data --port 16789 --rpcaddr 0.0.0.0 --rpcport 6789 --rpcapi "db,eth,net,web3,admin,personal" --rpc --nodiscover --nodekey "./data/platon/nodekey" --mpc --mpc.ice ./{mpc-ice-config-file} --mpc.actor 0xa7e6d8a00ba33ea732b2c924e1edc4e4b753e9ca
 ```
 
-5. Start the node
+6. View the log
 
-
-```
-$ nohup ./platon ... --nodekey "./data0/platon/nodekey" --mpc --mpc.ice ./cfg.server0.config --mpc.actor 0x9a568e649c3a9d43b7f565ff2c835a24934ba447 >> node0.log 2>&1 &
-$ nohup ./platon ... --nodekey "./data1/platon/nodekey" --mpc --mpc.ice ./cfg.server1.config --mpc.actor 0xce3a4aa58432065c4c5fae85106aee4aef77a115 >> node1.log 2>&1 &
-```
-
-6. View the log. /log/platon_mpc_xxx.log (xxx is the current node process number) as printed as follows:
+When the node is started with the above parameters, the following information will be output in the`./ log / platon_mpc_xxx. log (xxxx is the current node process number)`:
 
 ```
 MPC ENGINE INIT SUCCESS
