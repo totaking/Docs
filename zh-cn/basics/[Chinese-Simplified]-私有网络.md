@@ -367,33 +367,31 @@ $ nohup ./platon ... --nodekey "./data1/platon/nodekey" >> node1.log 2>&1 &
 
 ## 为节点启用MPC功能
 
-MPC 计算功能是PlatON 平台支持的安全多方计算功能，为实现隐私计算提供基础设施。更多MPC相关请[参考这里](zh-cn/development/[Chinese-Simplified]-%e9%9a%90%e7%a7%81%e5%90%88%e7%ba%a6%e5%bc%80%e5%8f%91%e6%8c%87%e5%8d%97)。**MPC计算功能仅能在[集群环境](#PlatON-%e9%9b%86%e7%be%a4%e7%8e%af%e5%a2%83)下启用**
+`MPC` 计算功能是`PlatON` 平台支持的安全多方计算功能，为实现隐私计算提供基础设施。更多`MPC`相关请参考[这里](zh-cn/development/[Chinese-Simplified]-%e9%9a%90%e7%a7%81%e5%90%88%e7%ba%a6%e5%bc%80%e5%8f%91%e6%8c%87%e5%8d%97)。由于`MPC`计算必须由两个及以上的节点参与，用户可参考[集群环境](#PlatON-%e9%9b%86%e7%be%a4%e7%8e%af%e5%a2%83)搭建两个及以上节点，注意参与计算的节点必须都开启`MPC`功能，启动方式如下：
 
-在启动节点时还需要如下操作：
+**1.检查`MPC`依赖库**
 
-1.检查依赖库
+在启动MPC功能之前，需要确保`MPC`相关依赖库已经安装完成，如果没有安装，请参考[这里](zh-cn/basics/installation/_Ubuntu-MV%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97?id=%e4%be%9d%e8%b5%96%e5%8c%85%e5%ae%89%e8%a3%85)进行安装。
 
-```bash
-$ env | grep LD_LIBRARY_PATH
-LD_LIBRARY_PATH=/home/platon/platon-node/mpclib
-```
-
-2.MPC计算服务通信使用单独的端口，默认为8201。若在一台机器上启用多个计算节点，需启用 `--mpc.ice` 选项，以显式声明的方式开启MPC计算功能
+**2.在节点启动时候增加以下参数**
 
 ```
 --mpc --mpc.ice ./{mpc-ice-config-file} --mpc.actor 0xa7e6d8a00ba33ea732b2c924e1edc4e4b753e9ca
 ```
 
-选项说明：
+参数项说明：
 
 | 选项 | 描述 |
 | :------------ | :------------ |
 | --mpc       | （必选）开启mpc计算功能 |
-| --mpc.ice   | （可选）mpc节点初始化ice配置。配置文件为 ./{mpc-ice-config-file} |
-| --mpc.actor | （可选）mpc计算指定钱包地址，与隐私合约参与方地址保持一致（可通过rpc接口eth_setActor(Address)进行设置） |
+| --mpc.ice   | （可选）mpc节点初始化ice配置，用以配置MPC通信端口，默认端口8201|
+| --mpc.actor | （可选）mpc计算指定钱包地址，与隐私合约参与方地址保持一致，若启动时候配置该参数，可后续通过RPC接口`eth_setActor(Address)`进行设置） |
 
+若在一台机器上启用多个计算节点，需启用 `--mpc.ice` 选项，以显式声明的方式开启MPC计算功能
 
-3.配置文件设置。若节点启动时启用 `--mpc.ice` 选项，则需要预先在节点工作目录下配置 `{mpc-ice-config-file}` 文件，用以配置 `MPC通信端口`，保持默认端口即可。文件配置如下
+**3.配置文件设置**
+
+若节点启动时启用 `--mpc.ice` 选项，则需要预先在节点工作目录下配置 `{mpc-ice-config-file}` 文件，用以配置 `MPC通信端口`。配置文件内容如下
 
 ```
 MpcNode.Server.Endpoints=default -p 8201
@@ -403,31 +401,15 @@ MpcNode.Server.Endpoints=default -p 8201
 
 **`-p` 后面的端口默认8201，可自行修改但不可与系统其他端口重复。**
 
-4.这里因为两个节点部署在同一台机器上，所以指定两个端口用以区分。
+**4.查看日志**
 
-```
-$ touch cfg.server0.config
-$ echo "MpcNode.Server.Endpoints=default -p 10001" > cfg.server0.config
-
-$ touch cfg.server1.config
-$ echo "MpcNode.Server.Endpoints=default -p 10002" > cfg.server1.config
-```
-
-5.启动节点
-
-
-```
-$ nohup ./platon ... --nodekey "./data0/platon/nodekey" --mpc --mpc.ice ./cfg.server0.config --mpc.actor 0x9a568e649c3a9d43b7f565ff2c835a24934ba447 >> node0.log 2>&1 &
-$ nohup ./platon ... --nodekey "./data1/platon/nodekey" --mpc --mpc.ice ./cfg.server1.config --mpc.actor 0xce3a4aa58432065c4c5fae85106aee4aef77a115 >> node1.log 2>&1 &
-```
-
-6.查看日志./log/platon_mpc_xxx.log(xxx为当前节点进程号)如打印如下：
+在启动节点时加上以上参数后，在 ./log/platon_mpc_xxx.log(xxx为当前节点进程号)如打印如下：
 
 ```
 MPC ENGINE INIT SUCCESS
 ```
 
-则mpc初始化成功。
+若显示以上信息，则表示`mpc`功能初始化成功。
 
 ## 为节点启用VC功能
 
