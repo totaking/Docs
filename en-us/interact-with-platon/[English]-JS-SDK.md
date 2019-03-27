@@ -1,5 +1,3 @@
-Javascript SDK
-
 - [Overview](#overview)
 - [Release notes](#release-notes)
   - [v0.2.0 Release notes](#v020-release-notes)
