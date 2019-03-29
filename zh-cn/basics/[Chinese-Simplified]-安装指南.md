@@ -6,16 +6,16 @@
 
 + `PlatON`基础环境安装 
 
-	- [Ubuntu环境安装111](/zh-cn/basics/installation/_Ubuntu安装指南.md)
+	- [Ubuntu环境安装](/zh-cn/basics/installation/_Ubuntu安装指南.md)
 	
-	- [Windows环境安装](/zh-cn/basics/installation/_Windows安装指南)
+	- [Windows环境安装](/zh-cn/basics/installation/_Windows安装指南.md)
 	
-	- [Docker环境运行](/zh-cn/basics/installation/_Docker安装指南)
+	- [Docker环境运行](/zh-cn/basics/installation/_Docker安装指南.md)
 
  
 + 带`MPC`和`VC`的`PlatON`环境安装
   
-    - [Ubuntu环境安装](/zh-cn/basics/installation/_Ubuntu-MV安装指南)
+    - [Ubuntu环境安装](/zh-cn/basics/installation/_Ubuntu-MV安装指南.md)
 	
-	- [Windows环境安装](/zh-cn/basics/installation/_Windows-MV安装指南)
+	- [Windows环境安装](/zh-cn/basics/installation/_Windows-MV安装指南.md)
 	
