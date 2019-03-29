@@ -59,7 +59,7 @@ Similarly, `E5-2620` and `v2` both indicate that `CPU` is a second-generation ar
 
 - **Linux platform**
 
-Installation using binary package, currently only supports Ubuntu16.04 version, you can directly download [binary package](https://download.platon.network/0.5/platon-ubuntu-amd64-mpc-compiler.zip) to extract it. :
+Installation using binary package, currently only supports Ubuntu16.04 version, you can directly download [binary package](https://download.platon.network/0.5/platon-ubuntu-amd64-mpc-toolkit.tar.gz) to extract it. :
 
 ```bash
 ./
