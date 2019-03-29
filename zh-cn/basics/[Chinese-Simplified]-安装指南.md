@@ -6,7 +6,7 @@
 
 + `PlatON`基础环境安装 
 
-	- [Ubuntu环境安装](/zh-cn/basics/installation/_Ubuntu安装指南)
+	- [Ubuntu环境安装](/zh-cn/basics/installation/_Ubuntu安装指南.md)
 	
 	- [Windows环境安装](/zh-cn/basics/installation/_Windows安装指南)
 	
