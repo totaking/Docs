@@ -112,7 +112,7 @@ Windows platform privacy compilation toolset, due to compiler version compatibil
 
 - **Linux platform**
 
-Ubuntu16.04 can be downloaded directly by downloading [Binary Package](https://download.platon.network/0.5/platon-ubuntu-amd64-mpc-compiler.zip).
+Ubuntu16.04 can be downloaded directly by downloading [Binary Package](https://download.platon.network/0.5/platon-ubuntu-amd64-mpc-toolkit.tar.gz).
 
 Other versions of Linux use source code to compile and install, taking Ubuntu as an example:
 
