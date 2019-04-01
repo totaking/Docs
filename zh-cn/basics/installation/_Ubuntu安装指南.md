@@ -32,6 +32,7 @@ $ sudo apt-get install platon
 ```bash
 # 添加PPA
 $ sudo add-apt-repository ppa:platonnetwork/platon
+c
 $ sudo vi platonnetwork-ubuntu-platon-bionic.list
 >> 将文件中bionic改为xenial
 
