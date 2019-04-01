@@ -2,7 +2,7 @@
 
 ## 安装PlatON
 
-PlatON支持Linux、Windows、Docker多种运行环境，各环境安装指南请参考[PlatON安装指南](zh-cn/basics/[Chinese-Simplified]-安装指南)。
+PlatON支持Linux、Windows、Docker多种运行环境，各环境安装指南请参考[PlatON安装指南](zh-cn/basics/[Chinese-Simplified]-安装指南.md)。
 
 本文假设Ubuntu环境下工作目录为 ~/platon-node ，Windows环境下工作目录为 D:\platon-node。注意后续均在工作目录下进行。
 
@@ -12,12 +12,12 @@ PlatON支持Linux、Windows、Docker多种运行环境，各环境安装指南�
 
 贝莱世界测试网络现已开放。想要连接到测试网络，可以通过下列方式：
 
-* 请下载 [Samurai 钱包](https://download.platon.network/0.5/samurai-windows-x86_64-0.5.0.zip)客户端，并移步[这里](zh-cn/user-interfaces/[Chinese-Simplified]-Samurai-钱包)根据提示安装后连接。
-* 使用交互式命令行工具 [了解更多](zh-cn/user-interfaces/cmd-line-interface/_javascript-console)。
+* 请下载 [Samurai 钱包](https://download.platon.network/0.5/samurai-windows-x86_64-0.5.0.zip)客户端，并移步[这里](zh-cn/user-interfaces/[Chinese-Simplified]-Samurai-钱包.md)根据提示安装后连接。
+* 使用交互式命令行工具 [了解更多](zh-cn/user-interfaces/cmd-line-interface/_javascript-console.md)。
 
 ### 搭建私有网络
 
-如果限制于网络条件不能连接到外部网络，或者希望在本地测试验证PlatON，可[搭建私有网络](zh-cn/basics/[Chinese-Simplified]-私有网络)。
+如果限制于网络条件不能连接到外部网络，或者希望在本地测试验证PlatON，可[搭建私有网络](zh-cn/basics/[Chinese-Simplified]-私有网络.md)。
 
 ### 连接到节点
 
@@ -57,7 +57,7 @@ Repeat passphrase:
 ["0x566c274db7ac6d38da2b075b4ae41f4a5c481d21", "0x3dea985c48e82ce4023263dbb380fc5ce9de95fd"]
 ```
 
-本例中，`0x566c274db7ac6d38da2b075b4ae41f4a5c481d21`为[搭建私有网络](zh-cn/basics/[Chinese-Simplified]-私有网络)时创建且已经在创世区块中预分配一定的Energon的coinbase账户。
+本例中，`0x566c274db7ac6d38da2b075b4ae41f4a5c481d21`为[搭建私有网络](zh-cn/basics/[Chinese-Simplified]-私有网络.md)时创建且已经在创世区块中预分配一定的Energon的coinbase账户。
 
 ## 解锁账户
 
