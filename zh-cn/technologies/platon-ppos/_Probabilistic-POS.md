@@ -117,7 +117,7 @@ PlatON采用温和通胀来提供经济奖励，相当于全网用户一起支�
 - 如果选票投的候选人因为质押金被淘汰，选票同时被淘汰，同时退回选票质押的Energon。
 
 ## 验证人共识相关
-验证节点选出后，采用[CBFT](_Concurrent-BFT)协议进行共识产生区块。
+验证节点选出后，采用[CBFT](/zh-cn/technologies/concurrent-bft/_Concurrent-BFT.md)协议进行共识产生区块。
 
 ## <a name="verify-pool"></a>验证池合约
 ### 合约地址
