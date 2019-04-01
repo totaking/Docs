@@ -371,7 +371,7 @@ $ nohup ./platon ... --nodekey "./data1/platon/nodekey" >> node1.log 2>&1 &
 
 **1.检查`MPC`依赖库**
 
-在启动MPC功能之前，需要确保`MPC`相关依赖库已经安装完成，如果没有安装，请参考[这里](/zh-cn/basics/installation/_Ubuntu-MV%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97,md?id=%e4%be%9d%e8%b5%96%e5%8c%85%e5%ae%89%e8%a3%85)进行安装。
+在启动MPC功能之前，需要确保`MPC`相关依赖库已经安装完成，如果没有安装，请参考[这里](/zh-cn/basics/installation/_Ubuntu-MV%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97.md?id=%e4%be%9d%e8%b5%96%e5%8c%85%e5%ae%89%e8%a3%85)进行安装。
 
 **2.在节点启动时候增加以下参数**
 
