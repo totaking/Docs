@@ -181,7 +181,7 @@ PLATON_ABI(demo::FirstDemo, getName)
 ```
 
 ## 合约骨架生成
-1. wasm智能合约的编写及其ABI(wasm文件)和BIN(json文件)生成方法请参考 [wiki](https://github.com/PlatONnetwork/wiki/wiki)
+1. wasm智能合约的编写及其ABI(wasm文件)和BIN(json文件)生成方法请参考 [WASM合约指南](/zh-cn/development/%5BChinese-Simplified%5D-Wasm合约开发指南.md)。
 2. 使用合约骨架生成工具
 ```
 client-sdk wasm generate /path/to/firstdemo.wasm /path/to/firstdemo.cpp.abi.json -o /path/to/src/main/java -p com.your.organisation.name
@@ -241,7 +241,7 @@ for(NotifyEventResponse r:eventResponses) {
 
 ## 内置合约
 ###  CandidateContract
-> PlatOn经济模型中候选人相关的合约接口 [合约描述](https://note.youdao.com/)
+> PlatOn经济模型中候选人相关的合约接口 [合约描述](/zh-cn/technologies/platon-ppos/_Probabilistic-POS.md#%E9%AA%8C%E8%AF%81%E6%B1%A0%E5%90%88%E7%BA%A6)。
 
 #### 加载合约
 ```
