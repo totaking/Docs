@@ -34,7 +34,7 @@ Windows安装程序下载后，双击安装程序并按照说明进行操作。�
 
 *注意：由于当前测试阶段，底层版本更新比较大，非初次安装，请您先卸载完后再手动删除如下图所示的保存区块数据的文件夹（默认路径：C:\Users\Username\AppData\Roaming\Samurai，其中Username为您登陆PC的账号名称），然后再按照安装引导进行安装。*
 
-<img src="zh-cn/user-interfaces/platon-samurai/image/Keystore_address-cn.png" width = "503" height="362"/>  
+<img src="/zh-cn/user-interfaces/platon-samurai/image/Keystore_address-cn.png" width = "503" height="362"/>  
 
 ### Linux安装
 
@@ -50,45 +50,45 @@ tar.xz源代码包安装说明：
 
 ### 网络初始化
 
-- [怎么加入PlatON测试网络](zh-cn/user-interfaces/platon-samurai/_网络初始化#怎么加入PlatON测试网络)
-- [如何创建PlatON本地私有网络](zh-cn/user-interfaces/platon-samurai/_网络初始化#如何创建PlatON本地私有网络)
+- [怎么加入PlatON测试网络](/zh-cn/user-interfaces/platon-samurai/_网络初始化.md#怎么加入PlatON测试网络)
+- [如何创建PlatON本地私有网络](/zh-cn/user-interfaces/platon-samurai/_网络初始化.md#如何创建PlatON本地私有网络)
 
 ### 钱包
 
-- [如何创建一个钱包](zh-cn/user-interfaces/platon-samurai/_钱包#如何创建一个钱包)
-- [如何导入/恢复一个已有的钱包](zh-cn/user-interfaces/platon-samurai/_钱包#%e5%a6%82%e4%bd%95%e5%af%bc%e5%85%a5%e6%81%a2%e5%a4%8d%e4%b8%80%e4%b8%aa%e5%b7%b2%e6%9c%89%e7%9a%84%e9%92%b1%e5%8c%85)
-- [如何发送、接收Energon](zh-cn/user-interfaces/platon-samurai/_钱包#%e5%a6%82%e4%bd%95%e5%8f%91%e9%80%81%e3%80%81%e6%8e%a5%e6%94%b6-energon)
-- [为什么钱包中的测试币被清零了](zh-cn/user-interfaces/platon-samurai/_钱包#为什么钱包中的测试币被清零了)
+- [如何创建一个钱包](/zh-cn/user-interfaces/platon-samurai/_钱包.md#如何创建一个钱包)
+- [如何导入/恢复一个已有的钱包](/zh-cn/user-interfaces/platon-samurai/_钱包.md#%e5%a6%82%e4%bd%95%e5%af%bc%e5%85%a5%e6%81%a2%e5%a4%8d%e4%b8%80%e4%b8%aa%e5%b7%b2%e6%9c%89%e7%9a%84%e9%92%b1%e5%8c%85)
+- [如何发送、接收Energon](/zh-cn/user-interfaces/platon-samurai/_钱包.md#%e5%a6%82%e4%bd%95%e5%8f%91%e9%80%81%e3%80%81%e6%8e%a5%e6%94%b6-energon)
+- [为什么钱包中的测试币被清零了](/zh-cn/user-interfaces/platon-samurai/_钱包.md#为什么钱包中的测试币被清零了)
 
 ### 联名钱包
 
-- [什么是联名钱包](zh-cn/user-interfaces/platon-samurai/_联名钱包#什么是联名钱包)
-- [如何创建一个联名钱包](zh-cn/user-interfaces/platon-samurai/_联名钱包#如何创建一个联名钱包)
-- [如何添加已创建的联名钱包](zh-cn/user-interfaces/platon-samurai/_联名钱包#如何添加已创建的联名钱包)
-- [如何使用联名钱包发送、接收Energon](zh-cn/user-interfaces/platon-samurai/_联名钱包#如何使用联名钱包发送、接收Energon)
+- [什么是联名钱包](/zh-cn/user-interfaces/platon-samurai/_联名钱包.md#什么是联名钱包)
+- [如何创建一个联名钱包](/zh-cn/user-interfaces/platon-samurai/_联名钱包.md#如何创建一个联名钱包)
+- [如何添加已创建的联名钱包](/zh-cn/user-interfaces/platon-samurai/_联名钱包.md#如何添加已创建的联名钱包)
+- [如何使用联名钱包发送、接收Energon](/zh-cn/user-interfaces/platon-samurai/_联名钱包.md#如何使用联名钱包发送、接收Energon)
 
 ### 交易
 
-- [如何确认交易](zh-cn/user-interfaces/platon-samurai/_交易#如何确认交易)
+- [如何确认交易](/zh-cn/user-interfaces/platon-samurai/_交易.md#如何确认交易)
 
 ### 合约
 
-- [Wasm合约是什么](zh-cn/user-interfaces/platon-samurai/_合约#Wasm合约是什么)
-- [如何部署一个Wasm合约](zh-cn/user-interfaces/platon-samurai/_合约#如何部署一个Wasm合约)
-- [如何添加别人已部署的合约](zh-cn/user-interfaces/platon-samurai/_合约#如何添加别人已部署的合约)
-- [怎样运行wasm合约](zh-cn/user-interfaces/platon-samurai/_合约#怎样运行Wasm合约)
-- [什么是隐私合约](zh-cn/user-interfaces/platon-samurai/_合约#什么是隐私合约)
-- [如何部署隐私合约](zh-cn/user-interfaces/platon-samurai/_合约#如何部署隐私合约)
-- [怎么执行隐私合约](zh-cn/user-interfaces/platon-samurai/_合约#怎么执行隐私合约)
+- [Wasm合约是什么](/zh-cn/user-interfaces/platon-samurai/_合约.md#Wasm合约是什么)
+- [如何部署一个Wasm合约](/zh-cn/user-interfaces/platon-samurai/_合约.md#如何部署一个Wasm合约)
+- [如何添加别人已部署的合约](/zh-cn/user-interfaces/platon-samurai/_合约.md#如何添加别人已部署的合约)
+- [怎样运行wasm合约](/zh-cn/user-interfaces/platon-samurai/_合约.md#怎样运行Wasm合约)
+- [什么是隐私合约](/zh-cn/user-interfaces/platon-samurai/_合约.md#什么是隐私合约)
+- [如何部署隐私合约](/zh-cn/user-interfaces/platon-samurai/_合约.md#如何部署隐私合约)
+- [怎么执行隐私合约](/zh-cn/user-interfaces/platon-samurai/_合约.md#怎么执行隐私合约)
 
 ### 应用-共识节点
 
-- [怎样注册共识节点](zh-cn/user-interfaces/platon-samurai/_竞选节点#怎样注册共识节点)
-- [如何避免共识节点被淘汰](zh-cn/user-interfaces/platon-samurai/_竞选节点#如何避免共识节点被淘汰)
-- [如何提高成为验证节点的概率](zh-cn/user-interfaces/platon-samurai/_竞选节点#如何提高成为验证节点的概率)
-- [如何为共识节点投票](zh-cn/user-interfaces/platon-samurai/_竞选节点#如何为共识节点投票)
-- [共识节点为什么会被淘汰](zh-cn/user-interfaces/platon-samurai/_竞选节点#共识节点为什么会被淘汰)
-- [被淘汰的节点如何再次加入](zh-cn/user-interfaces/platon-samurai/_竞选节点#被淘汰的节点如何再次加入)
-- [如何注销共识节点](zh-cn/user-interfaces/platon-samurai/_竞选节点#如何注销共识节点)
-- [如何提取被质押的资产](zh-cn/user-interfaces/platon-samurai/_竞选节点#如何提取被质押的资产)
+- [怎样注册共识节点](/zh-cn/user-interfaces/platon-samurai/_竞选节点.md#怎样注册共识节点)
+- [如何避免共识节点被淘汰](/zh-cn/user-interfaces/platon-samurai/_竞选节点.md#如何避免共识节点被淘汰)
+- [如何提高成为验证节点的概率](/zh-cn/user-interfaces/platon-samurai/_竞选节点.md#如何提高成为验证节点的概率)
+- [如何为共识节点投票](/zh-cn/user-interfaces/platon-samurai/_竞选节点.md#如何为共识节点投票)
+- [共识节点为什么会被淘汰](/zh-cn/user-interfaces/platon-samurai/_竞选节点.md#共识节点为什么会被淘汰)
+- [被淘汰的节点如何再次加入](/zh-cn/user-interfaces/platon-samurai/_竞选节点.md#被淘汰的节点如何再次加入)
+- [如何注销共识节点](/zh-cn/user-interfaces/platon-samurai/_竞选节点.md#如何注销共识节点)
+- [如何提取被质押的资产](/zh-cn/user-interfaces/platon-samurai/_竞选节点.md#如何提取被质押的资产)
 
