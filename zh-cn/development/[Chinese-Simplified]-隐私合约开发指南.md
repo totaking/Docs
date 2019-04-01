@@ -52,7 +52,7 @@
 
 ### 搭建环境
 
-- 搭建环境参考： [搭建隐私开发环境](zh-cn/development/privacy-contract/_搭建隐私计算环境)。
+- 搭建环境参考： [搭建隐私开发环境](/zh-cn/development/privacy-contract/_搭建隐私计算环境.md)。
 
 - 配置工作目录：
 
@@ -229,9 +229,9 @@ digest:
 
 ### 隐私合约发布
 
-隐私合约运行在隐私计算网络，需要发布到 `PlatON` 网络，使用前面步骤生成的 [Wasm合约](zh-cn/development/[Chinese-Simplified]-Wasm%e5%90%88%e7%ba%a6%e5%bc%80%e5%8f%91%e6%8c%87%e5%8d%97#Wasm%e5%90%88%e7%ba%a6%e7%ae%80%e8%bf%b0) 文件，可以通过交易的方式，部署到`PlatON`网络。
+隐私合约运行在隐私计算网络，需要发布到 `PlatON` 网络，使用前面步骤生成的 [Wasm合约](/zh-cn/development/[Chinese-Simplified]-Wasm%e5%90%88%e7%ba%a6%e5%bc%80%e5%8f%91%e6%8c%87%e5%8d%97.md#Wasm%e5%90%88%e7%ba%a6%e7%ae%80%e8%bf%b0) 文件，可以通过交易的方式，部署到`PlatON`网络。
 
-下面演示在Ubuntu 上发布Wasm 合约，以完成隐私合约发布流程。更多 Wasm合约开发信息请参考 [Wasm合约开发指南](zh-cn/development/[Chinese-Simplified]-Wasm%e5%90%88%e7%ba%a6%e5%bc%80%e5%8f%91%e6%8c%87%e5%8d%97#%e7%bc%96%e8%af%91%e5%90%88%e7%ba%a6)。
+下面演示在Ubuntu 上发布Wasm 合约，以完成隐私合约发布流程。更多 Wasm合约开发信息请参考 [Wasm合约开发指南](/zh-cn/development/[Chinese-Simplified]-Wasm%e5%90%88%e7%ba%a6%e5%bc%80%e5%8f%91%e6%8c%87%e5%8d%97.md#%e7%bc%96%e8%af%91%e5%90%88%e7%ba%a6)。
 
 1. 下载 Ubuntu 版本 [Wasm合约开发包](https://download.platon.network/0.4/pwasm-linux-amd64-0.4.0.tar.gz) 并解压到 ${pWasm} 。若已下载，跳至下一步。
 
@@ -436,7 +436,7 @@ Callback.Client.Endpoints=default -h 127.0.0.1
 
 配置文件说明：
 
-- `TaskCallback.Proxy` 的地址和端口与[启动带MPC计算功能](zh-cn/basics/[Chinese-Simplified]-%e7%a7%81%e6%9c%89%e7%bd%91%e7%bb%9c#%e4%b8%ba%e8%8a%82%e7%82%b9%e5%90%af%e7%94%a8MPC%e5%8a%9f%e8%83%bd)的 `PlatON` 节点时，参数 `--mpc.ice` 指定的 ICE 配置文件中配置的地址和端口保持一致（默认端口是8201）。
+- `TaskCallback.Proxy` 的地址和端口与[启动带MPC计算功能](/zh-cn/basics/[Chinese-Simplified]-%e7%a7%81%e6%9c%89%e7%bd%91%e7%bb%9c.md#%e4%b8%ba%e8%8a%82%e7%82%b9%e5%90%af%e7%94%a8MPC%e5%8a%9f%e8%83%bd)的 `PlatON` 节点时，参数 `--mpc.ice` 指定的 ICE 配置文件中配置的地址和端口保持一致（默认端口是8201）。
 - `Callback.Client.Endpoints`为启动数据隐私服务所在的服务器地址。
 
 #### 程序运行
@@ -552,4 +552,4 @@ Client1 result : alice is richer
 
 ## 深入理解隐私合约编程
 
-了解更多隐私合约开发细节，请参考：[深入理解隐私合约编程](zh-cn/development/[Chinese-Simplified]-%e6%b7%b1%e5%85%a5%e7%90%86%e8%a7%a3%e9%9a%90%e7%a7%81%e5%90%88%e7%ba%a6)。
+了解更多隐私合约开发细节，请参考：[深入理解隐私合约编程](/zh-cn/development/[Chinese-Simplified]-%e6%b7%b1%e5%85%a5%e7%90%86%e8%a7%a3%e9%9a%90%e7%a7%81%e5%90%88%e7%ba%a6.md)。
