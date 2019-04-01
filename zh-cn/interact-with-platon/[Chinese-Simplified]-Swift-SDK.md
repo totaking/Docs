@@ -943,7 +943,7 @@ param1描述
 <!--- 2 TicketContract -->
 
 ###  TicketContract
-> PlatOn经济模型中投票相关的合约接口 [合约描述]()
+> PlatOn经济模型中投票相关的合约接口 [合约描述](/zh-cn/technologies/platon-ppos/_Probabilistic-POS.md#%E9%AA%8C%E8%AF%81%E6%B1%A0%E5%90%88%E7%BA%A6)。
 
 <!--- 2.1 GetTicketPrice -->
 
