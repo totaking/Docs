@@ -290,7 +290,7 @@ function getParams(data = '', value = "0x0") {
 
 ##### CandidateContract
 
-> PlatON经济模型中候选人相关的合约接口 [合约描述](/zh-cn/technologies/platon-ppos/_Probabilistic-POS.md#%E9%AA%8C%E8%AF%81%E6%B1%A0%E5%90%88%E7%BA%A6)
+> PlatON经济模型中候选人相关的合约接口 [合约描述](/zh-cn/technologies/platon-ppos/_Probabilistic-POS.md#%E9%AA%8C%E8%AF%81%E6%B1%A0%E5%90%88%E7%BA%A6)。
 
 ##### 加载合约
 
