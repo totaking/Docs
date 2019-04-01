@@ -119,7 +119,7 @@
         intByte = i.to_bytes(length=num, byteorder='big', signed=True)
         return intByte
         
-###字符串类型编码
+### 字符串类型编码
 > 对传入合约交易的字符串类型encode
 
 **参数**
@@ -143,7 +143,7 @@
         else:
             raise Exception('please input a str')
             
-###布尔类型编码
+### 布尔类型编码
 > 对传入合约交易的布尔类型encode
 
 **参数**
@@ -167,7 +167,7 @@
         else:
             raise Exception('please input a bool')
 
-###wasm文件转换成二进制
+### wasm文件转换成二进制
 > wasm文件转换成二进制数组
 
 **参数**
@@ -327,7 +327,7 @@
         print(transactionHash)
         return transactionHash
         
-####非签名合约交易
+#### 非签名合约交易
 > 非签名合约交易
 
 **参数**
