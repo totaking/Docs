@@ -64,7 +64,7 @@ if (typeof web3 !== 'undefined') {
 
 ### 合约
 
-wasm智能合约的编写及其ABI(wasm文件)和BIN(json文件)生成方法请参考 [WASM合约指南](/zh-cn/development/%5BChinese-Simplified%5D-Wasm%E5%90%88%E7%BA%A6%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97.md)
+wasm智能合约的编写及其ABI(wasm文件)和BIN(json文件)生成方法请参考 [WASM合约指南](/zh-cn/development/%5BChinese-Simplified%5D-Wasm%E5%90%88%E7%BA%A6%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97.md)。
 
 #### 合约示例
 
