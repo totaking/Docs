@@ -83,7 +83,7 @@ $ make all-with-vc
 
 - 启动节点
 
-启动节点的具体方式请参考文档[私有网络](zh-cn/basics/[Chinese-Simplified]-私有网络)，注意节点的启动命令修改为如下形式：
+启动节点的具体方式请参考文档[私有网络](/zh-cn/basics/[Chinese-Simplified]-私有网络.md)，注意节点的启动命令修改为如下形式：
 
 ```
 $ ./platon --identity platon --datadir ./data --port 16789 --rpcaddr 0.0.0.0 --rpcport 6789 --rpcapi db,eth,net,web3,admin,personal --rpc --nodiscover --debug --verbosity 4  --vc --vc.actor 0xd7398978d04565ccf44097106e1cb7e9148d8ec9 --wasmlog wasm.log 
@@ -107,7 +107,7 @@ $ ./platon --identity platon --datadir ./data --port 16789 --rpcaddr 0.0.0.0 --r
 
 ##### 方式二： 连接测试网络
 
-贝莱世界测试网络现已开放，可按照[测试网络连接指南](zh-cn/basics/[Chinese-Simplified]-连接测试网络)将计算节点连接到测试网络。
+贝莱世界测试网络现已开放，可按照[测试网络连接指南](/zh-cn/basics/[Chinese-Simplified]-连接测试网络.md)将计算节点连接到测试网络。
 
 与私有网络一样，启动节点时也需要增加命令行参数：`--vc` 和 `--vc.actor`
 
@@ -183,7 +183,7 @@ $ ./vlang Add.cpp -o vcc.cpp
 
 #### 2. 编译`vcc.cpp`
 
-预编译生成的 `vcc.cpp` 需要编译为`WASM`字节码，编译环境请参考[配置WASM合约开发环境](zh-cn/development/wasm-contract/_配置Wasm合约开发环境#%E9%85%8D%E7%BD%AEwasm%E5%90%88%E7%BA%A6%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83)，其编译过程和普通`WASM`合约不同，其编译方式如下：
+预编译生成的 `vcc.cpp` 需要编译为`WASM`字节码，编译环境请参考[配置WASM合约开发环境](/zh-cn/development/wasm-contract/_配置Wasm合约开发环境.md#%E9%85%8D%E7%BD%AEwasm%E5%90%88%E7%BA%A6%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83)，其编译过程和普通`WASM`合约不同，其编译方式如下：
 
 - 创建Wasm合约工程
 
@@ -243,7 +243,7 @@ $ make
 
 ### 发布合约
 
-将上一步骤编译 `vcc.cpp` 文件生成的 `demo.wasm`， `demo.cpp.abi.json` 发布上链，发布方式请参考[Wasm合约发布](zh-cn/development/wasm-contract/_配置Wasm合约开发环境#发布合约)。
+将上一步骤编译 `vcc.cpp` 文件生成的 `demo.wasm`， `demo.cpp.abi.json` 发布上链，发布方式请参考[Wasm合约发布](/zh-cn/development/wasm-contract/_配置Wasm合约开发环境.md#发布合约)。
 
 合约发布成功后，返回合约地址如下：
 
