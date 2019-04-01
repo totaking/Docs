@@ -30,6 +30,7 @@ $ sudo apt-get install platon-all
 ```bash
 # 添加PPA
 $ sudo add-apt-repository ppa:platonnetwork/platon
+$ cd /etc/apt/sources.list.d
 $ sudo vi platonnetwork-ubuntu-platon-bionic.list
 >> Change bionic to xenial in the file
 
