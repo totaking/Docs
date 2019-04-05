@@ -71,7 +71,7 @@ PlatON randomly select 25 nodes from the candidate pools as validator per round 
 Therefore, by increasing the number of votes and accumulating votes, the probability of becoming a  validator can be increased.
 
 ## How to vote for a block producer
-To participate in the block producers voting,  you will have the opportunity to receive block rewards. For more information please click [here](en-us\technologies\[English]-Probability-POS)
+To participate in the block producers voting,  you will have the opportunity to receive block rewards. For more information please click [here](/en-us/technologies/[English]-Probability-POS)
 
 1.On the home page of [Block Producers], select the vote object, click the icon of [vote], as shown below:
 
