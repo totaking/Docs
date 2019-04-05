@@ -446,7 +446,7 @@ After the data node program is started, it will be registered to the computation
 
 ### Privacy Computing Client Implementation
 
-The privacy computing client is based on the client development kit (`mpc-proxy-sdk`), which implements privacy calculation initiation, calculation result query, etc., and the development package details refer to [Privacy Client Development Kit] (/en-us/development/%5BEnglish%5D-Deep-Understanding-Privacy-Contract-Dev.md?id=privacy-data-service-sdk#privacy-client-sdk).
+The privacy computing client is based on the client development kit (`mpc-proxy-sdk`), which implements privacy calculation initiation, calculation result query, etc., and the development package details refer to [Privacy Client Development Kit](/en-us/development/%5BEnglish%5D-Deep-Understanding-Privacy-Contract-Dev.md?id=privacy-data-service-sdk#privacy-client-sdk).
 
 #### Creating a maven project
 
