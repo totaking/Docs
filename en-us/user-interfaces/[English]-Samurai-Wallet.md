@@ -86,7 +86,7 @@ MacOS is not supported for the time being
 - [What is wasm contract](/en-us/user-interfaces/platon-samurai-EN/_Contracts.md#What-is-wasm-contract)
 - [How to deploy a wasm contract](/en-us/user-interfaces/platon-samurai-EN/_Contracts.md#how-to-deploy-a-wasm-contract)
 - [How to add a contract that has been created ](/en-us/user-interfaces/platon-samurai-EN/_Contracts.md#How-to-add-a-contract-that-has-been-created)
-- [How to execute a wasm contract ](/en-us/user-interfaces/platon-samurai-EN/_Contracts#How-to-execute-a-wasm-contract)
+- [How to execute a wasm contract ](/en-us/user-interfaces/platon-samurai-EN/_Contracts.md#How-to-execute-a-wasm-contract)
 - [What is privacy contract](/en-us/user-interfaces/platon-samurai-EN/_Contracts.md#What-is-privacy-contract)
 - [How to deploy a privacy contract](/en-us/user-interfaces/platon-samurai-EN/_Contracts.md#How-to-deploy-a-privacy-contract)
 - [How to execute a privacy contract](/en-us/user-interfaces/platon-samurai-EN/_Contracts.md#How-to-execute-a-privacy-contract)
