@@ -1,5 +1,5 @@
 - User Interfaces
  
-	- [Command line interface](en-us/user-interfaces/[English]-Command-line-interface)
-	- [Samurai Wallet](en-us/user-interfaces/[English]-Samurai-Wallet)
+	- [Command line interface](/en-us/user-interfaces/[English]-Command-line-interface.md)
+	- [Samurai Wallet](/en-us/user-interfaces/[English]-Samurai-Wallet.md)
  
