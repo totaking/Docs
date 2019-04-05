@@ -1,7 +1,7 @@
 
 Sometimes you might not need to connect to the live public network, you can instead choose to create your own private testnet. This is very useful if you don't need to test external contracts and want just to test the technology, because you won't have to compete with other minters and will easily generate a lot of test energon play around.
 
-We assume you are able to install `platon` following the [Installation Instructions](en-us/basics/[English]-Installation-Instructions).
+We assume you are able to install `platon` following the [Installation Instructions](/en-us/basics/[English]-Installation-Instructions.md).
 
 We assumes that the working directory is `~/platon-node` on Ubuntu and is `D:\platon-node` on Windows. 
 
@@ -364,11 +364,11 @@ $ ./platon --identity "platon" --datadir ./data1 --port 16790 --rpcaddr 0.0.0.0 
 
 ## Enabling MPC for a node
 
-The MPC Compute feature is a secure multi-party computing feature supported by the `PlatON` platform that provides the infrastructure for privacy calculations. More MPC related please [reference here](en-us/development/[English]-PlatON-Privacy-Contract-Guide). Since MPC computing must be participated by two or more nodes, users can build two or more nodes by referring to the [Cluster Environment](#PlatON-%e9%9b%86%e7%be%a4%e7%8e%af%e5%a2%83). Note that the nodes involved in computing must all turn on the MPC function. The start-up mode is as follows:
+The MPC Compute feature is a secure multi-party computing feature supported by the `PlatON` platform that provides the infrastructure for privacy calculations. More MPC related please [reference here](/en-us/development/[English]-PlatON-Privacy-Contract-Guide.md). Since MPC computing must be participated by two or more nodes, users can build two or more nodes by referring to the [Cluster Environment](#PlatON-%e9%9b%86%e7%be%a4%e7%8e%af%e5%a2%83). Note that the nodes involved in computing must all turn on the MPC function. The start-up mode is as follows:
 
 **1. Check the dependency library**
 
-Before starting the MPC function, you need to ensure that the MPC-related dependency libraries have been installed. If not, please refer to [here](#en-us/basics/installation/%5BEnglish%5D-Ubuntu-MV-Installation-Instructions?id=dependency-package-installation) for installation.
+Before starting the MPC function, you need to ensure that the MPC-related dependency libraries have been installed. If not, please refer to [here](/en-us/basics/installation/%5BEnglish%5D-Ubuntu-MV-Installation-Instructions.md?id=dependency-package-installation) for installation.
 
 **2. Add the following parameters at node startup**
 
@@ -409,7 +409,7 @@ Then mpc is initialized successfully.
 
 ## Enable VC function for the node
 
-For more VC related please refer to [here] (zh-cn/development/[Chinese-Simplified]-validable contract).
+For more VC related please refer to [here] (/zh-cn/development/[Chinese-Simplified.md]-validable contract).
 
 Add the following parameters when starting the node:
 
