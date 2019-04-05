@@ -8,7 +8,7 @@ The `PlatON` platform is the next-generation `Trustless` private data computing 
 ## Architecture
 
 <div align=left>
-<img src="zh-cn/development/privacy-contract/images/mpc_structure.png" width = "650" height="523"/>  
+<img src="/zh-cn/development/privacy-contract/images/mpc_structure.png" width = "650" height="523"/>  
 </div>
 Architecture diagram description:
 
@@ -46,7 +46,7 @@ Using the `MPC` calculation, the two rich people can compare with the other part
 
 ### Setting up the environment
 
-- Setting up an environment reference: [Building a privacy development environment](en-us/development/privacy-contract-EN/_setting-up-privacy-computation-environment).
+- Setting up an environment reference: [Building a privacy development environment](/en-us/development/privacy-contract-EN/_setting-up-privacy-computation-environment.md).
 
 - Configure working directory:
 
@@ -218,7 +218,7 @@ For more details on the `plang` compiler, refer to [Usage](https://github.com/Pl
 
 ### Privacy contract release
 
-The following demonstrates the release of a Wasm contract on Ubuntu to complete the privacy contract release process. For more information on Wasm contract development, please refer to [Wasm Contract Development Guide](en-us/development/[English]-Wasm-Contract-Development-Guide).
+The following demonstrates the release of a Wasm contract on Ubuntu to complete the privacy contract release process. For more information on Wasm contract development, please refer to [Wasm Contract Development Guide](/en-us/development/[English]-Wasm-Contract-Development-Guide.md).
 
 1. Download the Ubuntu version [Wasm Contract Development Kit](https://download.platon.network/0.4/pwasm-linux-amd64-0.4.0.tar.gz) and extract it to ${pWasm}. If you have already downloaded, skip to the next step.
 2. Go to the ${pWasm} directory and execute the following command to generate the Wasm contract project `YaoProblem`.
@@ -272,7 +272,7 @@ Assume that the contract address after the contract is issued is:
 
 ### Data Node Service Implementation
 
-Developers need to use the Privacy Data Service Development Kit (`mpc-data-sdk`) to build private data services. For more details, refer to [Privacy Data Services Development Kit](en-us/development/[English]-Deep-Understanding-Privacy-Contract-Dev).
+Developers need to use the Privacy Data Service Development Kit (`mpc-data-sdk`) to build private data services. For more details, refer to [Privacy Data Services Development Kit](/en-us/development/[English]-Deep-Understanding-Privacy-Contract-Dev.md?id=privacy-data-service-sdk).
 
 #### Project construction
 
@@ -425,7 +425,7 @@ Callback.Client.Endpoints=default -h 127.0.0.1
 
 Configuration file description:
 
-- The address and port of `TaskCallback.Proxy` and [Startup with MPC calculation function](en-us/basics/[English]-Private-Networks#Enabling-MPC-for-a-node) In the `PlatON` node, the address and port configured in the ICE configuration file specified by the parameter `--mpc.ice` are the same (the default port is 8201).
+- The address and port of `TaskCallback.Proxy` and [Startup with MPC calculation function](/en-us/basics/[English]-Private-Networks.md#Enabling-MPC-for-a-node) In the `PlatON` node, the address and port configured in the ICE configuration file specified by the parameter `--mpc.ice` are the same (the default port is 8201).
 - `Callback.Client.Endpoints` is the server address where the data privacy service is started.
 
 #### The program runs
@@ -446,7 +446,7 @@ After the data node program is started, it will be registered to the computation
 
 ### Privacy Computing Client Implementation
 
-The privacy computing client is based on the client development kit (`mpc-proxy-sdk`), which implements privacy calculation initiation, calculation result query, etc., and the development package details refer to [Privacy Client Development Kit] (#privacy-contract-develop-manual #私客户端开发包).
+The privacy computing client is based on the client development kit (`mpc-proxy-sdk`), which implements privacy calculation initiation, calculation result query, etc., and the development package details refer to [Privacy Client Development Kit] (/en-us/development/[English]-Deep-Understanding-Privacy-Contract-Dev?id=privacy-client-sdk).
 
 #### Creating a maven project
 
