@@ -146,8 +146,6 @@ bool YaoMillionairesProblem(int money1, int money2) {
 }
 ```
 
-
-
 ### 编译隐私合约
 
 #### 更新配置文件
@@ -287,7 +285,7 @@ $ ./ctool deploy --abi ./YaoProblem.cpp.abi.json --code ./YaoProblem.wasm --conf
 
 ### 数据节点服务实现
 
-开发者需要使用隐私数据服务开发包(`mpc-data-sdk`)构建隐私数据服务，更多接口详情参考[隐私数据服务开发包](privacy-contract-develop-manual#隐私数据服务开发包)。
+开发者需要使用隐私数据服务开发包(`mpc-data-sdk`)构建隐私数据服务，更多接口详情参考[隐私数据服务开发包](/zh-cn/development/[Chinese-Simplified]-%e6%b7%b1%e5%85%a5%e7%90%86%e8%a7%a3%e9%9a%90%e7%a7%81%e5%90%88%e7%ba%a6.md?id=%e9%9a%90%e7%a7%81%e6%95%b0%e6%8d%ae%e6%9c%8d%e5%8a%a1%e5%bc%80%e5%8f%91%e5%8c%85)。
 
 #### 构建工程
 
@@ -458,7 +456,7 @@ $ java -jar mpc-data-sdk-client2-1.0-SNAPSHOT.jar --walletPath=./config/ce3a4aa5
 
 ### 隐私计算客户端实现
 
-隐私计算客户端基于客户端开发包(`mpc-proxy-sdk`)，实现了隐私计算发起，计算结果查询等，开发包详情参考[隐私客户端开发包](#privacy-contract-develop-manual#隐私客户端开发包)。
+隐私计算客户端基于客户端开发包(`mpc-proxy-sdk`)，实现了隐私计算发起，计算结果查询等，开发包详情参考[隐私客户端开发包](/zh-cn/development/[Chinese-Simplified]-%e6%b7%b1%e5%85%a5%e7%90%86%e8%a7%a3%e9%9a%90%e7%a7%81%e5%90%88%e7%ba%a6.md?id=%e9%9a%90%e7%a7%81%e5%ae%a2%e6%88%b7%e7%ab%af%e5%bc%80%e5%8f%91%e5%8c%85)。
 
 #### 创建maven工程
 
