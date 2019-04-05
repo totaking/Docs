@@ -1,6 +1,6 @@
 > PlatON is more than a blockchain platform. PlatON should be considered as a large-scale computing network, and a trustless computing infrastructure built on cryptographic algorithms.
 
-<img src="/en-us/basics/images/architecture-en.png"  alt="architecture" />
+<img src="en-us/basics/images/architecture-en.png"  alt="architecture" />
 
 ### Challenges of Blockchain
 ["The Scalability Trilemma"](https://github.com/ethereum/wiki/wiki/Sharding-FAQs) raises three core issues of blockchain: scalability, decentralization, and security. In addition, with the occurrence of data leak scandals of companies such as Google, Facebook, and Marriott, and the EU General Data Protection Regulation (GDPR) taking effect, privacy issues are increasingly becoming a fourth important issue of blockchains. In fact, when people now talk about large-scale applications of the blockchain the problems of scalability and privacy are at the heart of the discussion.
@@ -16,7 +16,7 @@
 
 ## PlatON Basic Concepts
 ### Nodes
-<img src="/en-us/basics/images/nodes-en.png"  alt="nodes" />
+<img src="en-us/basics/images/nodes-en.png"  alt="nodes" />
 
 PlatON decouples transaction execution from blockchain consensus and builds a scalable trustless computing network off the chain. Therefore, the nodes in PlatON mainly are of the following categories:
 
