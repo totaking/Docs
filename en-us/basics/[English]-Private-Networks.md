@@ -364,7 +364,7 @@ $ ./platon --identity "platon" --datadir ./data1 --port 16790 --rpcaddr 0.0.0.0 
 
 ## Enabling MPC for a node
 
-The MPC Compute feature is a secure multi-party computing feature supported by the `PlatON` platform that provides the infrastructure for privacy calculations. More MPC related please [reference here](/en-us/development/[English]-PlatON-Privacy-Contract-Guide.md). Since MPC computing must be participated by two or more nodes, users can build two or more nodes by referring to the [Cluster Environment}(#platon-cluster). Note that the nodes involved in computing must all turn on the MPC function. The start-up mode is as follows:
+The MPC Compute feature is a secure multi-party computing feature supported by the `PlatON` platform that provides the infrastructure for privacy calculations. More MPC related please [reference here](/en-us/development/[English]-PlatON-Privacy-Contract-Guide.md). Since MPC computing must be participated by two or more nodes, users can build two or more nodes by referring to the [Cluster Environment](#platon-cluster). Note that the nodes involved in computing must all turn on the MPC function. The start-up mode is as follows:
 
 **1. Check the dependency library**
 
