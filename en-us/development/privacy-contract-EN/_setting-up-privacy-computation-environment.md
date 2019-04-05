@@ -45,15 +45,15 @@ Similarly, `E5-2620` and `v2` both indicate that `CPU` is a second-generation ar
 ## Building a PlatON Computing Network
 
 - **Method 1: Connect to the testnet**
-  1. Install the `platon` executable program locally, refer to [Installation Guide](en-us/basics/[English]-Installation-Instructions).
-  2. Connect the compute node to the test network by referring to the [Test Network Connection Guide](en-us/basics/[English]-Connect-to-Test-Network).
+  1. Install the `platon` executable program locally, refer to [Installation Guide](/en-us/basics/[English]-Installation-Instructions.md).
+  2. Connect the compute node to the test network by referring to the [Test Network Connection Guide](/en-us/basics/[English]-Connect-to-Test-Network.md).
 
 - **Method 2: Build a private test network**
   Set up a private test network by yourself, as follows:
 
-1. Install the `platon` executable with the `MPC` function and check the [Installation Guide](en-us/basics/[English]-Installation-Instructions).
-2. Set up the cluster environment, check [PlatON cluster environment](en-us/basics/[English]-Private-Networks#PlatON-cluster).
-3. Enable MPC calculation on the node, check [Enable MPC calculation function](en-us/basics/[English]-Private-Networks#Enabling-MPC-for-a-node).
+1. Install the `platon` executable with the `MPC` function and check the [Installation Guide](/en-us/basics/[English]-Installation-Instructions.md).
+2. Set up the cluster environment, check [PlatON cluster environment](/en-us/basics/[English]-Private-Networks.md#PlatON-cluster).
+3. Enable MPC calculation on the node, check [Enable MPC calculation function](/en-us/basics/[English]-Private-Networks.md#Enabling-MPC-for-a-node).
 
 ## Install the compiler integration package
 
