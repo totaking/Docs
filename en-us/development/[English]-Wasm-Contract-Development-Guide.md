@@ -16,12 +16,12 @@ This document is mainly an introduction to Wasm contract development guide under
 
 ## Development environment setup
 
-* [Setting up a Wasm contract development environment](en-us/development/wasm-contract-EN/_setting-up-Wasm-Contract-dev-env#setting-up)
+* [Setting up a Wasm contract development environment](/en-us/development/wasm-contract-EN/_setting-up-Wasm-Contract-dev-env#setting-up.md)
 
 ## Quick start
 
-* [Write your first Wasm contract](en-us/development/wasm-contract-EN/_setting-up-Wasm-Contract-dev-env#write-contract)
-* [Deploying contracts and Testing](en-us/development/wasm-contract-EN/_setting-up-Wasm-Contract-dev-env#deploy-and-test)
+* [Write your first Wasm contract](/en-us/development/wasm-contract-EN/_setting-up-Wasm-Contract-dev-env#write-contract.md)
+* [Deploying contracts and Testing](/en-us/development/wasm-contract-EN/_setting-up-Wasm-Contract-dev-env#deploy-and-test.md)
 
 ## Common issues
 
