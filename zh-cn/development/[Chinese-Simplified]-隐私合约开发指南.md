@@ -455,7 +455,7 @@ $ java -jar mpc-data-sdk-client2-1.0-SNAPSHOT.jar --walletPath=./config/ce3a4aa5
 
 ### 隐私计算客户端实现
 
-隐私计算客户端基于客户端开发包(`mpc-proxy-sdk`)，实现了隐私计算发起，计算结果查询等，开发包详情参考[隐私客户端开发包](/zh-cn/development/%5BChinese-Simplified%5D-%e6%b7%b1%e5%85%a5%e7%90%86%e8%a7%a3%e9%9a%90%e7%a7%81%e5%90%88%e7%ba%a6.md?id=%e9%9a%90%e7%a7%81%e5%ae%a2%e6%88%b7%e7%ab%af%e5%bc%80%e5%8f%91%e5%8c%85#%E9%9A%90%E7%A7%81%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%BC%80%E5%8F%91%E5%8C%855)。
+隐私计算客户端基于客户端开发包(`mpc-proxy-sdk`)，实现了隐私计算发起，计算结果查询等，开发包详情参考[隐私客户端开发包](zh-cn/development/%5BChinese-Simplified%5D-%e6%b7%b1%e5%85%a5%e7%90%86%e8%a7%a3%e9%9a%90%e7%a7%81%e5%90%88%e7%ba%a6.md?id=%e9%9a%90%e7%a7%81%e5%ae%a2%e6%88%b7%e7%ab%af%e5%bc%80%e5%8f%91%e5%8c%85#%E9%9A%90%E7%A7%81%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%BC%80%E5%8F%91%E5%8C%85)。
 
 #### 创建maven工程
 
@@ -485,7 +485,8 @@ $ java -jar mpc-data-sdk-client2-1.0-SNAPSHOT.jar --walletPath=./config/ce3a4aa5
 
 新建`platon.mpc.proxy` 包，将`plang`编译生成的`ProxyYaoMillionairesProblem.java`放入包中，该文件提供了隐私计算发起、计算结果查询等接口封装。
 
-####　源码实现
+
+#### 编码实现
 
 基于`ProxyYaoMillionairesProblem`类创建程序入口函数，并完成隐私计算发起、计算结果查询。
 
