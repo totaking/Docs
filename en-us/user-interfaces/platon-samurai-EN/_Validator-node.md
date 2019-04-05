@@ -11,7 +11,7 @@ On the home page of [Block Producers], click [My Producer], as shown below.
 
 **Note : **
 
-*want to know how to get the the Node address(IP, port) and node ID(Public Key), please click[here](\en-us\basics\[English]-Private-Networks.md)* 
+*want to know how to get the the Node address(IP, port) and node ID(Public Key), please click [here](/en-us/basics/[English]-Private-Networks.md)* 
 
 2.Stake:Select [Payment Wallet], input [Stake Amount], set the [Fee], click [Submit], as shown below:
 
