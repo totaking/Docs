@@ -272,7 +272,7 @@ Assume that the contract address after the contract is issued is:
 
 ### Data Node Service Implementation
 
-Developers need to use the Privacy Data Service Development Kit (`mpc-data-sdk`) to build private data services. For more details, refer to [Privacy Data Services Development Kit](/en-us/development/[English]-Deep-Understanding-Privacy-Contract-Dev.md?id=privacy-data-service-sdk).
+Developers need to use the Privacy Data Service Development Kit (`mpc-data-sdk`) to build private data services. For more details, refer to [Privacy Data Services Development Kit](/en-us/development/%5BEnglish%5D-Deep-Understanding-Privacy-Contract-Dev.md?id=privacy-data-service-sdk#privacy-data-service-sdk).
 
 #### Project construction
 
@@ -446,7 +446,7 @@ After the data node program is started, it will be registered to the computation
 
 ### Privacy Computing Client Implementation
 
-The privacy computing client is based on the client development kit (`mpc-proxy-sdk`), which implements privacy calculation initiation, calculation result query, etc., and the development package details refer to [Privacy Client Development Kit] (/en-us/development/[English]-Deep-Understanding-Privacy-Contract-Dev?id=privacy-client-sdk).
+The privacy computing client is based on the client development kit (`mpc-proxy-sdk`), which implements privacy calculation initiation, calculation result query, etc., and the development package details refer to [Privacy Client Development Kit] (/en-us/development/%5BEnglish%5D-Deep-Understanding-Privacy-Contract-Dev.md?id=privacy-data-service-sdk#privacy-client-sdk).
 
 #### Creating a maven project
 
