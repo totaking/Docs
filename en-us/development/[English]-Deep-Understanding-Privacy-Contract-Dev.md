@@ -262,7 +262,7 @@ Method instructions:
 More examples reference [MPCSamples.java](privacy-contract/samples/MPCSamples.java)。
 
 
-## privacy Client SDK
+## Privacy Client SDK
 
 **Note: The methods involved below are all used in the proxy class `ProxyXXX.java` compiled by `plang`.**
 
