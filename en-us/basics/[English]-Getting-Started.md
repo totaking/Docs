@@ -3,7 +3,7 @@
 
 ## Installing PlatON
 
-PlatON supports Linux, Windows and Docker operating environments. Please refer to the [Installation Instructions](en-us/basics/[English]-Installation-Instructions) for each environment.
+PlatON supports Linux, Windows and Docker operating environments. Please refer to the [Installation Instructions](/en-us/basics/[English]-Installation-Instructions.md) for each environment.
 
 We assumes that the working directory is `~/platon-node` on Ubuntu and is `D:\platon-node` on Windows. Note that the following operations are performed in the working directory.
 
@@ -12,12 +12,12 @@ We assumes that the working directory is `~/platon-node` on Ubuntu and is `D:\pl
 ### Connect to the Baleyworld testnet
 
 The Baleyworld TestNet is live. There are two ways to connect to it:
-* download the [Samurai Wallet](https://download.platon.network/0.3/samurai-windows-x86_64-0.3.0.zip) client and follow the [instructions here](en-us/user-interfaces/[English]-Samurai-Wallet) to install and connect to TestNet.
-* Use interactive command line tools to install and connect [learn more](en-us/user-interfaces/cmd-line-interface/_javascript-console)
+* download the [Samurai Wallet](https://download.platon.network/0.3/samurai-windows-x86_64-0.3.0.zip) client and follow the [instructions here](/en-us/user-interfaces/[English]-Samurai-Wallet.md) to install and connect to TestNet.
+* Use interactive command line tools to install and connect [learn more](/en-us/user-interfaces/cmd-line-interface/_javascript-console.md)
 
 ### Building a private network
 
-If you are unable to connect to external networks, or if you want to test Platon locally, see [Creating private networks](en-us/basics/[English]-Private-Networks).
+If you are unable to connect to external networks, or if you want to test Platon locally, see [Creating private networks](/en-us/basics/[English]-Private-Networks.md).
 
 ### Connecting to nodes
 
@@ -52,7 +52,7 @@ The output is the account address.
 > eth.accounts
 ["0x566c274db7ac6d38da2b075b4ae41f4a5c481d21", "0x3dea985c48e82ce4023263dbb380fc5ce9de95fd"]
 ```
-In this example, `0x566c274db7ac6d38da2b075b4ae41f4a5c481d21` is the coinbase account created when [creating private network](en-us/basics/[English]-Private-Networks) and has been pre-allocated in the genesis block.
+In this example, `0x566c274db7ac6d38da2b075b4ae41f4a5c481d21` is the coinbase account created when [creating private network](/en-us/basics/[English]-Private-Networks.md) and has been pre-allocated in the genesis block.
 
 ## unlocking account
 
