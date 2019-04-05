@@ -62,7 +62,7 @@ As shown in the following figure:
 
 ## What is privacy contract
 
-The privacy contract is a special MPC contract on PlatON that leverages the PlatON platform's secure multi-party computing (MPC) capabilities to protect the privacy of calculated data. For more information please click [here](en-us\development\[English]-PlatON-Privacy-Contract-Guide).
+The privacy contract is a special MPC contract on PlatON that leverages the PlatON platform's secure multi-party computing (MPC) capabilities to protect the privacy of calculated data. For more information please click [here](\en-us\development\[English]-PlatON-Privacy-Contract-Guide.md).
 
 ## How to deploy a privacy contract
 
@@ -72,5 +72,5 @@ The operation steps are the same as [How to deploy a contract](#How-to-execute-a
 
 The operation steps are basically the same as [How to execute a contract ](#How-to-execute-a-contract), and slelect  [MPC Compute Tx] as the execution type when executing.
 
-For more information about privacy contract, please click [here](en-us\development\[English]-Deep-Understanding-Privacy-Contract-Dev).
+For more information about privacy contract, please click [here](\en-us\development\[English]-Deep-Understanding-Privacy-Contract-Dev.md).
 
