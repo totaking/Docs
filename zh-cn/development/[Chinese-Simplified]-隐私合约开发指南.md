@@ -2,16 +2,15 @@
 
 ## 简介
 
-> [PlatON](zh-cn/basics/[Chinese-Simplified]-快速指南) 平台作为下一代`Trustless`安全数据计算架构，基于安全多方计算(`MPC`)对数据隐私保护特性，使用隐私合约实现隐私计算业务逻辑，为隐私计算提供了基础设施。
+> [PlatON](/zh-cn/basics/[Chinese-Simplified]-快速指南.md) 平台作为下一代`Trustless`安全数据计算架构，基于安全多方计算(`MPC`)对数据隐私保护特性，使用隐私合约实现隐私计算业务逻辑，为隐私计算提供了基础设施。
 
 隐私合约使用C++语言编写，通过编译、部署等步骤发布到`PlatON链上`，并借助`PlatON`线上数据节点和线下计算节点组成的复合网络，接收隐私计算客户端（需求方）发起的隐私计算请求，提供隐私计算服务。
 
 ### 隐私计算架构
 
 <div align=left>
-<img src="zh-cn/development/privacy-contract/images/mpc_structure.png" width = "650" height="523"/>  
+<img src="/zh-cn/development/privacy-contract/images/mpc_structure.png" width = "650" height="523"/>  
 </div>
-
 
 
 架构图说明：
