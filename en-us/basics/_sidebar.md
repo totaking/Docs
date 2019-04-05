@@ -1,9 +1,9 @@
 - Basics
  
-	- [Introduction](en-us/basics/[English]-Introduction)
-	- [White Paper](en-us/basics/[English]-Whitepaper)
-	- [Getting Started](en-us/basics/[English]-Getting-Started)
-	- [Installation Instructions](en-us/basics/[English]-Installation-Instructions)
-	- [Create Private Networks](en-us/basics/[English]-Private-Networks)
-	- [FAQs](en-us/basics/[English]-FAQs)
+	- [Introduction](/en-us/basics/[English]-Introduction.md)
+	- [White Paper](/en-us/basics/[English]-Whitepaper.md)
+	- [Getting Started](/en-us/basics/[English]-Getting-Started.md)
+	- [Installation Instructions](/en-us/basics/[English]-Installation-Instructions.md)
+	- [Create Private Networks](/en-us/basics/[English]-Private-Networks.md)
+	- [FAQs](/en-us/basics/[English]-FAQs.md)
  
