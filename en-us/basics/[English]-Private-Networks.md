@@ -112,7 +112,7 @@ D:\platon-node> type .\data\platon\nodekey
 $ pwd
 /home/platon/platon-node
 $ mkdir -p ./data/platon
-$ echo "1abd1200759d4693f4510fbcf7d5caad743b11b5886dc229da6c0747061fca36" > ./data/platon/nodekey
+$ echo 1abd1200759d4693f4510fbcf7d5caad743b11b5886dc229da6c0747061fca36 > ./data/platon/nodekey
 $ cat ./data/platon/nodekey
 ```
 

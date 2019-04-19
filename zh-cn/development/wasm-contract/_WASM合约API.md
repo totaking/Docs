@@ -1,4 +1,8 @@
-# PlatON WASM 用户手册
+# PlatON WASM API使用手册
+
+
+
+[TOC]
 
 ## 数据类型
 
@@ -21,7 +25,7 @@
 
 ## API
 
-- [State API]()
+- [State API](#State API)
 - [Common API]()
 - [Print API]()
 - [Class]()
@@ -253,7 +257,7 @@ h256 sha3(bytes& data)
 >
 > ```C++
 > platon::bytes arr{10, 11, 12, 13};
-> auto hash = platon::sha3(arr);
+> h256 hash = platon::sha3(arr);
 > ```
 
 #### sha3(2/3)
@@ -276,10 +280,10 @@ h256 sha3(const std::string& data)
 >
 > ```C++
 > std::string str = "hello world!";
-> auto hash = platon::sha3(str);
+> h256 hash = platon::sha3(str);
 > ```
 
-#### sha3(3/3)
+#### sha3(3/3)	
 
 ```C++
 h256 sha3(const byte* data, size_t len)
@@ -300,7 +304,7 @@ h256 sha3(const byte* data, size_t len)
 >
 > ```C++
 > byte arr[3] = {20, 30, 40};
-> auto hash = platon::sha3(arr, 3);
+> h256 hash = platon::sha3(arr, 3);
 > ```
 
 #### getCallerNonce
@@ -938,6 +942,8 @@ void print(Arg&& a, Args&&... args)
 > uint128_t ui128 = 87654321;
 > uint64_t strAsUi64 = N(abcde);
 > platon::print(s, ui64, ui128, strAsUi64);
+> 
+> --待补充： 占位符用法
 > ```
 
 ## Classes
@@ -1991,7 +1997,7 @@ Example:
 
 ```C++
 void test_assert() {
-  PlatonAssert(10 > 0);
+  PlatonAssert(10 > 0，"error msg");
   PlatonAssertEQ(10, 10);
   PlatonAssertNE(10, 11);
 }
