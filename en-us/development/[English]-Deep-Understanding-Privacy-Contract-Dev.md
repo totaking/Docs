@@ -168,8 +168,7 @@ return_type:   Return type
 bool YaoMillionairesProblem(int in1, int in2) {
     emp::Integer alice(in1, emp::ALICE);  	// Alice input
     emp::Integer bob(in2, emp::BOB);       	// Bob input
-    int ret = (alice - bob).reveal();      	// Execute the comparison size and get the comparison result
-    return ret >= 0;
+    return alice.geq(bob).reveal();      	// Execute the comparison size and get the comparison result
 }
 ```
 
@@ -179,19 +178,13 @@ bool YaoMillionairesProblem(int in1, int in2) {
 #include "msg.pb.h"
 #include "integer.h"   
 
-/**
-* Perform absolute value calculation on the Foo object fields item1 and item2 input by Alice and the input value in2 of Bob, and return the calculated Foo object
-*/
-Foo foo_abs(const Foo& in1, int32_t in2){
-    Foo Foo = in1;
+bool foo(const Foo& in1, int32_t in2){
     emp::Integer item1(in1.item1(), emp::ALICE);    //Alice inputs item1
     emp::Integer item2(in1.item2(), emp::ALICE);    //Alice inputs item2
     emp::Integer v2(in2, emp::BOB);                 //Bob input
-    emp::Integer ret1 = (item1 - v2).abs();         //Take Alice's item1 and Bob for privacy calculation and take the absolute value
-    emp::Integer ret2 = (item2 - v2).abs();         //Take Alice's item2 and Bob for privacy calculation and take the absolute value
-    foo.set_item1(ret1.reveal());                   //Reset item1
-    foo.set_item2(ret2.reveal());                   //Reset item2
-    return foo;                                     
+    emp::Integer sum = item1 + item2;
+    
+    return sum.geq(v2).reveal();                                     
 }
 ```
 
