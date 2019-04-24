@@ -130,18 +130,10 @@ Address: {0x9a568e649c3a9d43b7f565ff2c835a24934ba447}Copy to clipboardErrorCopie
  * @return true if Alice >= Bob else false.
  */
 bool YaoMillionairesProblem(int money1, int money2) {
-    std::cout << __FUNCTION__ 
-        << " Alice: " << money1 
-        << " Bob: " << money2 
-        << std::endl;
-	
-    emp::Integer alice_money(money1, emp::ALICE);  // 设置Alice金额
-    emp::Integer bob_money(money2, emp::BOB);  // 设置Bob金额
+    emp::Integer alice_money(money1, emp::ALICE);
+    emp::Integer bob_money(money2, emp::BOB);
 
-    int ret = (alice_money - bob_money).reveal();  // 执行比较大小，获取比较结果
-    std::cout << __FUNCTION__ << " result(=Alice-Bob): " << ret << std::endl;
-
-    return ret >= 0;
+    return alice_money.geq(bob_money).reveal(); 
 }
 ```
 
