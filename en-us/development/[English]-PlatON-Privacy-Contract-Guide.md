@@ -122,18 +122,9 @@ Write a privacy contract `YaoMillionairesProblem.cpp` that solves `Yao’s milli
   * @return true if Alice >= Bob else false.
   */
 Bool YaoMillionairesProblem(int money1, int money2) {
-     Std::cout << __FUNCTION__
-         << " Alice: " << money1
-         << " Bob: " << money2
-         << std::endl;
-
-     Emp::Integer alice_money(money1, emp::ALICE); // Set Alice amount
-     Emp::Integer bob_money(money2, emp::BOB); // Set the Bob amount
-
-     Int ret = (alice_money - bob_money).reveal(); // Execute the comparison size and get the comparison result
-     Std::cout << __FUNCTION__ << " result(=Alice-Bob): " << ret << std::endl;
-
-     Return ret >= 0;
+     Emp::Integer alice_money(money1, emp::ALICE);
+     Emp::Integer bob_money(money2, emp::BOB);
+     return alice_money.geq(bob_money).reveal();
 }
 ```
 
