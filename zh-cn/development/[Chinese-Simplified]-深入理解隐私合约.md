@@ -165,8 +165,7 @@ return_type:   返回类型
 bool YaoMillionairesProblem(int in1, int in2) {
     emp::Integer alice(in1, emp::ALICE);  	// Alice输入
     emp::Integer bob(in2, emp::BOB);       	// Bob输入
-    int ret = (alice - bob).reveal();      	// 执行比较大小，并获取比较结果
-    return ret >= 0;
+    return alice.geq(bob).reveal();      	// 执行比较大小，并获取比较结果
 }
 ```
 
@@ -177,18 +176,14 @@ bool YaoMillionairesProblem(int in1, int in2) {
 #include "integer.h"   
 
 /**
-* 对Alice输入的Foo对象字段item1、item2分别和Bob的输入值in2进行绝对值运算，返回计算后的Foo对象
+* 对Alice输入的Foo对象字段item1、item2求和再跟Bob的输入值in2进行比较，返回比较结果
 */
-Foo foo_abs(const Foo& in1, int32_t in2){
-    Foo Foo = in1;
+bool foo(const Foo& in1, int32_t in2){
     emp::Integer item1(in1.item1(), emp::ALICE);    //Alice输入item1
     emp::Integer item2(in1.item2(), emp::ALICE);    //Alice输入item2
     emp::Integer v2(in2, emp::BOB);                 //Bob输入
-    emp::Integer ret1 = (item1 - v2).abs();         //将Alice输入item1与Bob的输入做隐私计算后取绝对值
-    emp::Integer ret2 = (item2 - v2).abs();         //将Alice输入item2与Bob的输入做隐私计算后取绝对值
-    foo.set_item1(ret1.reveal());                   //重置item1
-    foo.set_item2(ret2.reveal());                   //重置item2
-    return foo;                                     
+    emp::Integer sum = item1 + item2;
+    return sum.geq(v2).reveal();                                     
 }
 ```
 
