@@ -1,6 +1,4 @@
-# PlatON WASM API使用手册
-
-
+# PlatON WASM 用户手册
 
 [TOC]
 
@@ -25,423 +23,13 @@
 
 ## API
 
-- [State API](#State API)
-- [Common API]()
-- [Print API]()
-- [Class]()
-   - [Contract]()
-   - [DeployedContract]()
-- [StorageType]()
-
-### State API
-
-#### gasPrice()
-
-```C
-int64_t gasPrice()
-```
-
-> 获取 gas 的价格
->
-> **Returns:**
->
-> int64_t - gas 价格
->
-> **Example:**
->
-> ```C
-> auto price = gasPrice();
-> ```
-
-#### blockHash
-
-```C++
-h256 blockHash(int64_t number)
-```
-
-> 获取块高`number`的哈希
->
-> **Paramters:**
->
-> - **number** - 块高
->
-> **Returns:**
->
-> h256 - 块的哈希
->
-> **Example:**
->
-> ```C++
-> auto hash = platon::blockHash(16);
-> ```
-
-#### number
-
-```C++
-uint64_t number()
-```
-
-> 获取当前块的高度
->
-> **Returns:**
->
-> uint64_t - 块高
->
-> **Example:**
->
-> ```C++
-> uint64_t blockNumber = number();
-> ```
-
-#### gasLimit
-
-```C++
-uint64_t gasLimit()
-```
-
-> 获取 gas 上限
->
-> **Returns:**
->
-> uint64_t - gas 上限
->
-> **Example:**
->
-> ```C++
-> uint64_t limited = platon::gasLimit();
-> ```
-
-#### timestamp
-
-```C++
-int64_t timestamp()
-```
-
-> 获取区块时间(ms)
->
-> **Returns:**
->
-> int64_t - 时间戳(ms)
->
-> **Example:**
->
-> ```C++
-> int64_t blockTime = platon::timestamp();
-> ```
-
-#### coinbase
-
-```C++
-h160 coinbase()
-```
-
-> 获取当前区块矿工的钱包地址
->
-> **Returns:**
->
-> h160 - 当前区块矿工的钱包地址
->
-> **Example:**
->
-> ```C++
-> platon::h160 addr = platon::coinbase();
-> ```
-
-#### balance
-
-```C++
-u256 balance()
-```
-
-> 获取资产
->
-> **Returns:**
->
-> u256 - 资产总值
->
-> **Example:**
->
-> ```C++
-> platon::u256 balance = platon::balance();
-> ```
-
-#### origin
-
-```C++
-h160 origin()
-```
-
-> 获取原始交易发起人的地址
->
-> **Returns:**
->
-> h160 - 原始交易发起人的地址
->
-> **Example:**
->
-> ```C++
-> platon::h160 addr = platon::origin();
-> ```
-
-#### caller
-
-```C++
-h160 caller()
-```
-
-> 获取合约调用方的地址
->
-> **Returns:**
->
-> h160 - 合约调用方的地址
->
-> **Example:**
->
-> ```C++
-> platon::h160 addr = platon::caller();
-> ```
-
-#### callValue
-
-```C++
-u256 callValue()
-```
-
-> 与消息一起发送的能量数量
->
-> **Returns:**
->
-> u256 - 能量数量
->
-> **Example:**
->
-> ```C++
-> platon::u256 v = platon::callValue();
-> ```
-
-#### address
-
-```C++
-h160 address()
-```
-
-> 获取合约地址
->
-> **Returns:**
->
-> h160 - 合约地址
->
-> **Example:**
->
-> ```C++
-> platon::h160 addr = platon::address();
-> ```
-
-#### sha3(1/3)
-
-```C++
-h256 sha3(bytes& data)
-```
-
-> 计算输入数据的 Keccak-256 哈希
->
-> **Parameters:**
->
-> - **data** - 二进制数据
->
-> **Returns:**
->
-> h256 - Keccak-256 哈希
->
-> **Example:**
->
-> ```C++
-> platon::bytes arr{10, 11, 12, 13};
-> h256 hash = platon::sha3(arr);
-> ```
-
-#### sha3(2/3)
-
-```C++
-h256 sha3(const std::string& data)
-```
-
-> 计算输入字符串的 Keccak-256 哈希
->
-> **Parameters:**
->
-> - **data** - 字符串
->
-> **Returns:**
->
-> h256 - Keccak-256 哈希
->
-> **Example:**
->
-> ```C++
-> std::string str = "hello world!";
-> h256 hash = platon::sha3(str);
-> ```
-
-#### sha3(3/3)	
-
-```C++
-h256 sha3(const byte* data, size_t len)
-```
-
-> 计算输入数据的 Keccak-256 哈希
->
-> **Parameters:**
->
-> - **data** - 数据
-> - **len** - 数据长度
->
-> **Returns:**
->
-> h256 - Keccak-256 哈希
->
-> **Example:**
->
-> ```C++
-> byte arr[3] = {20, 30, 40};
-> h256 hash = platon::sha3(arr, 3);
-> ```
-
-#### getCallerNonce
-
-```C++
-int64_t getCallerNonce()
-```
-
-> 获取调用方的 nonce
->
-> **Returns:**
->
-> int64_t - 调用方的 nonce
->
-> **Example:**
->
-> ```C++
-> auto nonce = getCallerNonce();
-> ```
-
-#### callTransfer
-
-```C++
-int64_t callTransfer(const Address& to, u256 amount)
-```
-
-> 转账
->
-> **Parameters:**
->
-> - **to** - 转账目的地址
-> - **amount** - 转账数量
->
-> **Returns:**
->
-> int64_t - 0 转账成功, 非 0 转账失败
->
-> **Example:**
->
-> ```C++
-> platon::Address to("0x1C4A8F9a6cdFa6e7FF32f72546840d6BeBF6BBd0", true);
-> auto res = platon::callTransfer(to, 100);
-> ```
-
-#### setState
-
-```C++
-template <typename KEY, typename VALUE>
-void setState(const KEY& key, const VALUE&)
-```
-
-> 设置状态
->
-> **Template Parameters:**
->
-> - **KEY** - 键类型, 必须是容器类型如 std::string, std::vector<int>, bytes
-> - **VALUE** - 值类型, 必须是容器类型如 std::string, std::vector<int>, bytes
->
-> **Parameters:**
->
-> - **key** - 主键
-> - **value** - 值
->
-> **Example:**
->
-> ```C++
-> std::string key = "key";
-> std::string val = "val";
-> platon::setState(key, val);
->
-> std::vector<int> key{1, 2, 3};
-> std::vector<std::string> val{"123", "hello"};
-> platon::setState(key, val);
-> ```
-
-#### getState
-
-```C++
-template <class KEY, class VALUE>
-size_t getState(const KEY& key, const VALUE& value)
-```
-
-> 获取状态
->
-> **Template Parameters:**
->
-> - **KEY** - 键类型, 必须是容器类型如 std::string, std::vector<int>, bytes
-> - **VALUE** - 值类型, 必须是容器类型如 std::string, std::vector<int>, bytes
->
-> **Parameters:**
->
-> - **key** - 主键
-> - **value** - 值
->
-> **Returns:**
->
-> size_t - 数据长度
->
-> **Example:**
->
-> ```C++
-> std::string key = "hello";
-> std::string val;
-> auto len = platon::getState(key, val);
-> ```
-
-#### delState
-
-```C++
-template <typename KEY>
-void delState(const KEY& key)
-```
-
-> 删除状态
->
-> **Template Parameters:**
->
-> - **KEY** - 键类型, 必须是容器类型如 std::string, std::vector<int>, bytes
->
-> **Parameters:**
->
-> - **key** - 主键
->
-> **Example:**
->
-> ```C++
-> std::string key("hello");
-> platon::delState(key);
-> ```
-
 ### Common API
 
 #### fromHexChar
 
 ```C++
 int platon::fromHexChar(int _i)
-```
+​```
 
 > 将 16 进制字符转换为 10 进制整数
 >
@@ -463,7 +51,7 @@ int platon::fromHexChar(int _i)
 
 ```C++
 bytes platon::fromHex(std::string const& _s)
-```
+​```
 
 > 将 16 进制字符串转换为对应的 byte 数组
 >
@@ -508,7 +96,7 @@ bytes platon::asBytes(std::string const& _b)
 ```C++
 template <class Iterator>
 std::string toHex(Iterator _it, Iterator _end, std::string const& _prefix)
-```
+​```
 
 > 将 byte 序列转换为对应的 16 进制字符串
 >
@@ -538,7 +126,7 @@ std::string toHex(Iterator _it, Iterator _end, std::string const& _prefix)
 ```C++
 template <class T>
 std::string toHex(T const& _data)
-```
+​```
 
 > 将 byte 序列转换为对应的 16 进制字符串
 >
@@ -565,7 +153,7 @@ std::string toHex(T const& _data)
 ```C++
 template <class T, class Out>
 void toBigEndian(T _val, Out o_out)
-```
+​```
 
 > 将整数转换为大端 byte 数组
 >
@@ -591,7 +179,7 @@ void toBigEndian(T _val, Out o_out)
 ```C++
 template <class T, class _In>
 T fromBigEndian(_In const& _bytes)
-```
+​```
 
 > 将大端 byte 数组转换为整数
 >
@@ -618,6 +206,407 @@ T fromBigEndian(_In const& _bytes)
 > int16_t = platon::fromBigEndian(arr);
 > ```
 
+### State API
+
+#### gasPrice()
+
+```C
+int64_t gasPrice()
+​```
+
+> 获取 gas 的价格
+>
+> **Returns:**
+>
+> int64_t - gas 价格
+>
+> **Example:**
+>
+> ```C
+> auto price = gasPrice();
+> ```
+
+#### blockHash
+
+```C++
+h256 blockHash(int64_t number)
+​```
+
+> 获取块高`number`的哈希
+>
+> **Paramters:**
+>
+> - **number** - 块高
+>
+> **Returns:**
+>
+> h256 - 块的哈希
+>
+> **Example:**
+>
+> ```C++
+> auto hash = platon::blockHash(16);
+> ```
+
+#### number
+
+```C++
+uint64_t number()
+​```
+
+> 获取当前块的高度
+>
+> **Returns:**
+>
+> uint64_t - 块高
+>
+> **Example:**
+>
+> ```C++
+> uint64_t blockNumber = number();
+> ```
+
+#### gasLimit
+
+```C++
+uint64_t gasLimit()
+​```
+
+> 获取 gas 上限
+>
+> **Returns:**
+>
+> uint64_t - gas 上限
+>
+> **Example:**
+>
+> ```C++
+> uint64_t limited = platon::gasLimit();
+> ```
+
+#### timestamp
+
+```C++
+int64_t timestamp()
+​```
+
+> 获取区块时间(ms)
+>
+> **Returns:**
+>
+> int64_t - 时间戳(ms)
+>
+> **Example:**
+>
+> ```C++
+> int64_t blockTime = platon::timestamp();
+> ```
+
+#### coinbase
+
+```C++
+h160 coinbase()
+​```
+
+> 获取当前区块矿工的钱包地址
+>
+> **Returns:**
+>
+> h160 - 当前区块矿工的钱包地址
+>
+> **Example:**
+>
+> ```C++
+> platon::h160 addr = platon::coinbase();
+> ```
+
+#### balance
+
+```C++
+u256 balance()
+​```
+
+> 获取资产
+>
+> **Returns:**
+>
+> u256 - 资产总值
+>
+> **Example:**
+>
+> ```C++
+> platon::u256 balance = platon::balance();
+> ```
+
+#### origin
+
+```C++
+h160 origin()
+​```
+
+> 获取原始交易发起人的地址
+>
+> **Returns:**
+>
+> h160 - 原始交易发起人的地址
+>
+> **Example:**
+>
+> ```C++
+> platon::h160 addr = platon::origin();
+> ```
+
+#### caller
+
+```C++
+h160 caller()
+​```
+
+> 获取合约调用方的地址
+>
+> **Returns:**
+>
+> h160 - 合约调用方的地址
+>
+> **Example:**
+>
+> ```C++
+> platon::h160 addr = platon::caller();
+> ```
+
+#### callValue
+
+```C++
+u256 callValue()
+​```
+
+> 与消息一起发送的能量数量
+>
+> **Returns:**
+>
+> u256 - 能量数量
+>
+> **Example:**
+>
+> ```C++
+> platon::u256 v = platon::callValue();
+> ```
+
+#### address
+
+```C++
+h160 address()
+​```
+
+> 获取合约地址
+>
+> **Returns:**
+>
+> h160 - 合约地址
+>
+> **Example:**
+>
+> ```C++
+> platon::h160 addr = platon::address();
+> ```
+
+#### sha3(1/3)
+
+```C++
+h256 sha3(bytes& data)
+​```
+
+> 计算输入数据的 Keccak-256 哈希
+>
+> **Parameters:**
+>
+> - **data** - 二进制数据
+>
+> **Returns:**
+>
+> h256 - Keccak-256 哈希
+>
+> **Example:**
+>
+> ```C++
+> platon::bytes arr{10, 11, 12, 13};
+> auto hash = platon::sha3(arr);
+> ```
+
+#### sha3(2/3)
+
+```C++
+h256 sha3(const std::string& data)
+​```
+
+> 计算输入字符串的 Keccak-256 哈希
+>
+> **Parameters:**
+>
+> - **data** - 字符串
+>
+> **Returns:**
+>
+> h256 - Keccak-256 哈希
+>
+> **Example:**
+>
+> ```C++
+> std::string str = "hello world!";
+> auto hash = platon::sha3(str);
+> ```
+
+#### sha3(3/3)
+
+```C++
+h256 sha3(const byte* data, size_t len)
+​```
+
+> 计算输入数据的 Keccak-256 哈希
+>
+> **Parameters:**
+>
+> - **data** - 数据
+> - **len** - 数据长度
+>
+> **Returns:**
+>
+> h256 - Keccak-256 哈希
+>
+> **Example:**
+>
+> ```C++
+> byte arr[3] = {20, 30, 40};
+> auto hash = platon::sha3(arr, 3);
+> ```
+
+#### getCallerNonce
+
+```C++
+int64_t getCallerNonce()
+​```
+
+> 获取调用方的 nonce
+>
+> **Returns:**
+>
+> int64_t - 调用方的 nonce
+>
+> **Example:**
+>
+> ```C++
+> auto nonce = getCallerNonce();
+> ```
+
+#### callTransfer
+
+```C++
+int64_t callTransfer(const Address& to, u256 amount)
+​```
+
+> 转账
+>
+> **Parameters:**
+>
+> - **to** - 转账目的地址
+> - **amount** - 转账数量
+>
+> **Returns:**
+>
+> int64_t - 0 转账成功, 非 0 转账失败
+>
+> **Example:**
+>
+> ```C++
+> platon::Address to("0x1C4A8F9a6cdFa6e7FF32f72546840d6BeBF6BBd0", true);
+> auto res = platon::callTransfer(to, 100);
+> ```
+
+#### setState
+
+```C++
+template <typename KEY, typename VALUE>
+void setState(const KEY& key, const VALUE&)
+​```
+
+> 设置状态
+>
+> **Template Parameters:**
+>
+> - **KEY** - 键类型, 必须是容器类型如 std::string, std::vector<int>, bytes
+> - **VALUE** - 值类型, 必须是容器类型如 std::string, std::vector<int>, bytes
+>
+> **Parameters:**
+>
+> - **key** - 主键
+> - **value** - 值
+>
+> **Example:**
+>
+> ```C++
+> std::string key = "key";
+> std::string val = "val";
+> platon::setState(key, val);
+>
+> std::vector<int> key{1, 2, 3};
+> std::vector<std::string> val{"123", "hello"};
+> platon::setState(key, val);
+> ```
+
+#### getState
+
+```C++
+template <class KEY, class VALUE>
+size_t getState(const KEY& key, const VALUE& value)
+​```
+
+> 获取状态
+>
+> **Template Parameters:**
+>
+> - **KEY** - 键类型, 必须是容器类型如 std::string, std::vector<int>, bytes
+> - **VALUE** - 值类型, 必须是容器类型如 std::string, std::vector<int>, bytes
+>
+> **Parameters:**
+>
+> - **key** - 主键
+> - **value** - 值
+>
+> **Returns:**
+>
+> size_t - 数据长度
+>
+> **Example:**
+>
+> ```C++
+> std::string key = "hello";
+> std::string val;
+> auto len = platon::getState(key, val);
+> ```
+
+#### delState
+
+```C++
+template <typename KEY>
+void delState(const KEY& key)
+​```
+
+> 删除状态
+>
+> **Template Parameters:**
+>
+> - **KEY** - 键类型, 必须是容器类型如 std::string, std::vector<int>, bytes
+>
+> **Parameters:**
+>
+> - **key** - 主键
+>
+> **Example:**
+>
+> ```C++
+> std::string key("hello");
+> platon::delState(key);
+> ```
 
 ### Print API
 
@@ -625,7 +614,7 @@ T fromBigEndian(_In const& _bytes)
 
 ```C++
 void print(const char* ptr)
-```
+​```
 
 > 打印字符串
 >
@@ -643,7 +632,7 @@ void print(const char* ptr)
 
 ```C++
 void print(const std::string& s)
-```
+​```
 
 > 打印字符串
 >
@@ -662,7 +651,7 @@ void print(const std::string& s)
 
 ```C++
 void print(std::string& s)
-```
+​```
 
 > 打印字符串
 >
@@ -681,7 +670,7 @@ void print(std::string& s)
 
 ```C++
 void print(const char c)
-```
+​```
 
 > 打印字符
 >
@@ -699,7 +688,7 @@ void print(const char c)
 
 ```C++
 void print(int num)
-```
+​```
 
 > 打印整数
 >
@@ -718,7 +707,7 @@ void print(int num)
 
 ```C++
 void print(uint32_t num)
-```
+​```
 
 > 打印 32 位整数
 >
@@ -738,7 +727,7 @@ void print(uint32_t num)
 
 ```C++
 void print(int64_t num)
-```
+​```
 
 > 打印 64 位整数
 >
@@ -757,7 +746,7 @@ void print(int64_t num)
 
 ```C++
 void print(unsigned int num)
-```
+​```
 
 > 打印无符号整数
 >
@@ -776,7 +765,7 @@ void print(unsigned int num)
 
 ```C++
 void print(uint32_t num)
-```
+​```
 
 > 打印 32 位无符号整数
 >
@@ -795,7 +784,7 @@ void print(uint32_t num)
 
 ```C++
 void print(uint64_t num)
-```
+​```
 
 > 打印 64 位无符号整数
 >
@@ -814,7 +803,7 @@ void print(uint64_t num)
 
 ```C++
 void print(int128_t num)
-```
+​```
 
 > 打印 128 位整数
 >
@@ -833,7 +822,7 @@ void print(int128_t num)
 
 ```C++
 void print(uint128_t num)
-```
+​```
 
 > 打印 128 位无符号整数
 >
@@ -852,7 +841,7 @@ void print(uint128_t num)
 
 ```C++
 void print(u256 num)
-```
+​```
 
 > 打印 256 位无符号整数
 >
@@ -871,7 +860,7 @@ void print(u256 num)
 
 ```C++
 void print(bool val)
-```
+​```
 
 > 打印布尔值(true/false)
 >
@@ -891,7 +880,7 @@ void print(bool val)
 ```C++
 template <typename Arg, typename... Args>
 void print(Arg&& a, Args&&.. args)
-```
+​```
 
 > 打印一个或多个值
 >
@@ -920,7 +909,7 @@ void print(Arg&& a, Args&&.. args)
 ```C++
 template <typename Arg, typename..Args>
 void print(Arg&& a, Args&&... args)
-```
+​```
 
 > 打印一个值或多个值, 并换行
 >
@@ -942,8 +931,6 @@ void print(Arg&& a, Args&&... args)
 > uint128_t ui128 = 87654321;
 > uint64_t strAsUi64 = N(abcde);
 > platon::print(s, ui64, ui128, strAsUi64);
-> 
-> --待补充： 占位符用法
 > ```
 
 ## Classes
@@ -963,7 +950,7 @@ class TestContract : public Contract {
     platon::print("Hello World!\n");
   }
 };
-```
+​```
 
 #### Public Functions
 
@@ -971,7 +958,7 @@ class TestContract : public Contract {
 
 ```C++
 virtual void init() {}
-```
+​```
 
 > 合约初始化函数, 在合约部署时调用, 且仅调用一次. 通常用于初始化合约数据.
 
@@ -986,7 +973,7 @@ virtual void init() {}
 
 ```C++
 explicit DeployedContract(Address address)
-```
+​```
 
 通过合约地址构造 DeployedContract 对象
 
@@ -994,7 +981,7 @@ explicit DeployedContract(Address address)
 
 ```C++
 explicit DeployedContract(const std::string& address)
-```
+​```
 
 > 通过合约地址字符串构造 DeployedContract 对象
 
@@ -1003,7 +990,7 @@ explicit DeployedContract(const std::string& address)
 ```
 template <typename... Args>
 inline std::string callString(const std::string& funcName, Args&&... args) const
-```
+​```
 
 > 调用指定合约的函数
 >
@@ -1036,7 +1023,7 @@ inline std::string delegateCallString(
   const std::string& funcName,
   Args&&... args
 ) const
-```
+​```
 
 > 调用指定合约的函数
 >
@@ -1066,7 +1053,7 @@ inline std::string delegateCallString(
 ```C++
 template <typename... Args>
 inline std::string callInt64(const std::string& funcName, Args&&... args) const
-```
+​```
 
 > 调用指定合约的函数
 >
@@ -1096,7 +1083,7 @@ inline std::string callInt64(const std::string& funcName, Args&&... args) const
 ```C++
 template <typename... Args>
 inline int64_t delegateCallInt64(const std::string& funcName, Args&&... args) const
-```
+​```
 
 > 调用指定合约的函数
 >
@@ -1126,7 +1113,7 @@ inline int64_t delegateCallInt64(const std::string& funcName, Args&&... args) co
 ```C++
 template <typename... Args>
 inline void call(const std::string& funcName, Args&&... args) const
-```
+​```
 
 > 调用指定合约的函数
 >
@@ -1152,7 +1139,7 @@ inline void call(const std::string& funcName, Args&&... args) const
 ```C++
 template <typename... Args>
 inline void delegateCall(const std::string& funcName, Args&&... args) const
-```
+​```
 
 > 调用指定合约的函数
 >
@@ -1183,30 +1170,30 @@ inline void delegateCall(const std::string& funcName, Args&&... args) const
 - **T** - 数据类型(int/uint8_t/uint32_t/long/std::string...)
 
 Example:
-```C++
+​```C++
 void test_storage_type() {
   char stu8_name[] = "stu8";
   char st_str_name[] = "st_str";
-  
+
   platon::StorageType<stu8_name, uint8_t> stu8(1);
   platon::StorageType<st_str_name, std::string> st_str("Hello, PlatON");
-  
+
   platon::println(stu8.get()); // 1
   platon::println(st_str.get()); // Hello, PlatON
-  
+
   *stu8 = 10;
   *st_str = "Hello, World";
-  
+
   platon::println(stu8.get()); // 10
   platon::println(st_str.get()); // Hello, World
-  
+
   stu8 = 20;
   st_str = "Hello";
-  
+
   platon::println(stu8.get()); // 20 
   platon::println(st_str.get()); // Hello
 }
-```
+​```
 
 #### Typedef
 
@@ -1215,93 +1202,332 @@ void test_storage_type() {
 ```C++
 template <const char* name>
 using Uint8 = class StorageType<name, uint8_t>
-```
+​```
+
+Example:
+
+```c++
+#include <platon/platon.hpp>
+
+typedef platon::Uint8<"test"_n> TestUint8;
+
+void test() {
+  TestUint8 t;
+
+  // 通过解引用拿到真正的类型，赋值
+  *t = 10;
+
+  // access
+  platon::println(*t);
+  platon::println(t.get());
+}
+​```
 
 ##### platon::Int8
 
 ```C++
 template <const char* name>
 using Int8 = class StorageType<name, int8_t>
-```
+​```
+
+Example:
+
+```C++
+#include <platon/platon.hpp>
+
+typedef platon::Int8<"test"_n> TestInt8;
+
+void test() {
+  TestInt8 t;
+
+  // assign
+  *t = 10;
+
+  // access
+  platon::println(*t);
+  platon::println(t.get());
+}
+​```
 
 ##### platon::Uint16
 
 ```C++
 template <const char* name>
 using Uint16 = class StorageType<name, uint16_t>
-```
+​```
+
+Example:
+
+```c++
+#include <platon/platon.hpp>
+
+typedef platon::Uint16<"test"_n> TestUint16;
+
+void test() {
+  TestUint16 t;
+
+  // assign
+  *t = 100;
+
+  // access
+  platon::println(*t);
+  platon::println(t.get());
+}
+​```
 
 ##### platon::Int16
 
 ```C++
 template <const char* name>
 using Int16 = class StorageType<name, int16_t>
-```
+​```
+
+Example:
+
+```c++
+#include <platon/platon.hpp>
+
+typedef platon::Int16<"test"_n> TestInt16;
+
+void test() {
+  TestInt16 t;
+
+  // assign
+  *t = 199;
+
+  // access
+  platon::println(*t);
+  platon::println(t.get());
+}
+​```
 
 ##### platon::Uint
 
 ```C++
 template <class char* name>
 using Uint = class StorageType<name, unt32_t>
-```
+​```
+
+Example: 
+
+```c++
+#include <platon/platon.hpp>
+
+typedef platon::Uint<"test"_n> TestUint;
+
+void test() {
+  TestUint t;
+
+  // assign
+  *t = 90;
+
+  // access
+  platon::println(*t);
+  platon::println(t.get());
+}
+​```
 
 ##### platon::Int
 
 ```C++
 template <class char* name>
 using Int = class StorageType<name, int32_t>
-```
+​```
+
+Example: 
+
+```c++
+#include <platon/platon.hpp>
+
+typedef platon::Int<"test"_n> TestInt;
+
+void test() {
+  TestInt t;
+
+  // assign
+  *t = 100;
+
+  // access
+  platon::println(*t);
+  platon::println(t.get());
+}
+​```
 
 ##### platon::Uint64
 
 ```C++
 template <class char* name>
 using Uint64 = class StorageType<name, uint64_t>
-```
+​```
+
+Example:
+
+```C++
+#include <platon/platon.hpp>
+
+typedef platon::Uint64<"test"_n> TestUint64;
+
+void test() {
+  TestUint64 t;
+
+  // assign
+  *t = 100000;
+
+  // access
+  platon::println(*t);
+  platon::println(t.get());
+}
+​```
 
 ##### platon::Int64
 
 ```C++
 template <class char* name>
 using Int64 = class StorageType<name, int64_t>
-```
+​```
+
+Example:
+
+```C++
+#include <platon/platon.hpp>
+
+typedef platon::Int64<"test"_n> TestInt64;
+
+void test() {
+  TestInt64 t;
+
+  // assign
+  *t = 199999999;
+
+  // access
+  platon::println(*t);
+  platon::println(t.get());
+}
+​```
 
 ##### platon::String
 
 ```C++
 template <class char* name>
 using String = class StorageType<name, std::string>
-```
+​```
+
+Example:
+
+```C++
+#include <platon/platon.hpp>
+
+typedef platon::String<"test"_n> TestString;
+
+void Test() {
+  TestString str;
+
+  // assign
+  *str = "Hello, PlatON!";
+  str->append("Hello");
+  str->assign("Hello, PlatON");
+
+  // 通过operater*可以拿到std::string
+  // 可以把*str当成一个std::string对象去使用
+
+  // access
+  platon::println(str->c_str());
+  platon::println((*str).c_str());
+  platon::println(str.get().c_str());
+}
+​```
 
 ##### platon::Vector
 
 ```C++
 template <class char* name, typename T>
 using Vector = class StorageType<name, std::vector<T>>
-```
+​```
 > **Template Parameters:**
 > 
 > - **name** - 名称
 > - **T** - 元素类型
+
+Example:
+
+```C++
+#include <platon/platon.hpp>
+
+typedef platon::Vector<"test"_n, int> TestVec;
+
+void test() {
+  TestVec vec;
+
+  // assign
+  for (auto i = 0; i < 10; i++) {
+    (*vec).push_back(i);
+  }
+
+  // 通过operater*可以拿到std::vector
+  // 可以把*vec当成一个std::vector对象去使用
+
+  // access
+  for (auto i = 0; i < vec->size(); i++) {
+    platon::print((*vec)[i]);
+  }
+  platon::println(vec.get()[0]);
+  platon::println(vec->font());  // 访问vector第一个元素
+  platon::println(vec->back());  // 访问vector最后一个元素
+
+  // 使用迭代器
+  for (auto it = vec->begin(); it != vec->end(); ++it) {
+    platon::print(*it);
+  }
+}
+​```
 
 ##### platon::Set
 
 ```C++
 template <class char* name, typename T>
 using Set = class StorageType<name, std::set<T>>
-```
+​```
 
 > **Template Parameters:**
 >
 > - **name** - 名称
 > - **T** - 元素类型
 
+Example:
+
+```C++
+#include <platon/platon.hpp>
+
+typedef platon::Set<"test"_n, int> TestSet;
+
+void test() {
+  TestSet set;
+
+  // assign
+  for (auto i = 0; i < 10; i++) {
+    (*set).insert(i); 
+  }
+
+  // 通过operater*可以拿到std::set
+  // 可以把*set当成一个std::set对象去使用
+
+  // access
+  for (auto it = set->begin(); it != set->end(); ++it) {
+    platon::print(*it);
+  }
+
+  // modify
+  set->erase(8);
+  set->clear();
+}
+​```
+
 ##### platon::Map
 
 ```C++
 template <class char* name, typename K, typename V>
 using Map = class StorageType<name, std::map<K,V>>
-```
+​```
 
 > **Template Parameters:**
 >
@@ -1309,12 +1535,43 @@ using Map = class StorageType<name, std::map<K,V>>
 > - **K** - std::map的键类型
 > - **V** - std::map的值类型
 
+Example: 
+
+```C++
+#include <platon/platon.hpp>
+
+typedef platon::Map<"test"_n, std::string, std::string> TestMap;
+
+void test() {
+  TestMap tm;
+
+  // assign
+  (*tm)["hello"] = "platon";
+  (*tm).insert(std::make_pair("key", "value")); 
+
+  // 通过operater*可以拿到std::map
+  // 可以把*tm当成一个std::map对象去使用
+
+  // access
+  for (auto it = tm->begin(); it != tm->end(); ++it) {
+    platon::print_f("key: % value: %\n", it->first.c_str(), it->second.c_str());
+  }
+  platon::println(tm->get()["hello"]);
+  platon::println(tm->at("hello"));
+  platon::println((*tm)["hello"]);
+
+  // modify
+  tm->erase("key");
+  tm->clear();
+}
+​```
+
 ##### platon::Array
 
 ```C++
 template <const char* name, typename T, size_t N>
 using Array = class StorageType<name, std::array<T,N>>
-```
+​```
 
 > **Template Parameters:**
 > 
@@ -1322,17 +1579,68 @@ using Array = class StorageType<name, std::array<T,N>>
 > - **T** - 元素类型
 > - **N** - 数组大小
 
+Example:
+
+```C++
+#include <platon/platon.hpp>
+
+typedef platon::Array<"test"_n, int, 10> TestArray;
+
+void test() {
+  TestArray arr;
+
+  // assign
+  for (auto i = 0; i < 10; i++) {
+    (*arr)[i] = i;
+  }
+
+  // 通过operater*可以拿到std::array
+  // 可以把*arr当成一个std::array对象去使用
+
+  // access
+  for (auto i = 0; i < 10; i++) {
+    platon::print((*arr)[i]);
+  }
+  platon::println(arr-at(0));
+  platon::println(arr->front());
+  platon::println(arr->back());
+}
+​```
+
 ##### platon::Tuple
 
 ```C++
 template <const char* name, typename... Types>
 using Tuple = class StorageType<name, std::tuple<Types...>>
-```
+​```
 
 > **Template Parameters:**
 >
 > - **name** - 名称
 > - **Types** - 元素类型
+
+Example: 
+
+```C++
+#include <platon/platon.hpp>
+
+typedef platon::Tuple<"test"_n, int, std::string, int> TestTuple;
+
+void test() {
+  TestTuple tpl;
+
+  // assign
+  *tpl = std::make_tuple(10, "test", 9);
+
+  // 通过operater*可以拿到std::tuple
+  // 可以把*tpl当成一个std::tuple对象去使用
+
+  // access
+  platon::println(std::get<0>(*tpl));
+  platon::println(std::get<1>(*tpl).c_str());
+  platon::println(std::get<2>(*tpl));
+}
+​```
 
 ### platon::db::Array
 
@@ -1362,7 +1670,7 @@ platon::print("\n");
 for (auto it = arr.rbegin(); it != arr.rend(); ++it) {
   platon::print(*it); // 987654321
 }
-```
+​```
 
 #### Public Functions
 
@@ -1370,7 +1678,7 @@ for (auto it = arr.rbegin(); it != arr.rend(); ++it) {
 
 ```C++
 Array()
-```
+​```
 
 > 构造`Array`对象
 
@@ -1378,7 +1686,7 @@ Array()
 
 ```C++
 Iterator begin()
-```
+​```
 
 > 返回一个指向数组开始位置的迭代器
 >
@@ -1391,7 +1699,7 @@ Iterator begin()
 
 ```C++
 Iterator end()
-```
+​```
 
 > 返回指向数组结束位置的迭代器
 >
@@ -1403,7 +1711,7 @@ Iterator end()
 
 ```C++
 ReverseIterator rbegin()
-```
+​```
 
 > 返回指向数组末尾的反向迭代器
 >
@@ -1415,7 +1723,7 @@ ReverseIterator rbegin()
 
 ```C++
 ReverseIterator rend()
-```
+​```
 
 > 返回指向数组开始位置的反向迭代器
 > 
@@ -1427,7 +1735,7 @@ ReverseIterator rend()
 
 ```C++
 ConstIterator cbegin()
-```
+​```
 
 > 返回指向数组开始位置的迭代器
 > 
@@ -1439,7 +1747,7 @@ ConstIterator cbegin()
 
 ```C++
 ConstIterator cend()
-```
+​```
 
 > 返回指向数组末尾的迭代器
 >
@@ -1451,7 +1759,7 @@ ConstIterator cend()
 
 ```C++
 ConstReverseIterator crbegin()
-```
+​```
 
 > 返回指向数组末尾的反向迭代器
 >
@@ -1463,7 +1771,7 @@ ConstReverseIterator crbegin()
 
 ```C++
 ConstReverseIterator crend()
-```
+​```
 
 > 返回指向数组开始位置的反向迭代器
 > 
@@ -1475,7 +1783,7 @@ ConstReverseIterator crend()
 
 ```C++
 Key& at(size_t pos)
-```
+​```
 
 > 返回指定索引对应的数组元素
 > 
@@ -1491,7 +1799,7 @@ Key& at(size_t pos)
 
 ```C++
 Key& operator[](size_t pos)
-```
+​```
 
 > 返回指定索引对应的数组元素
 > 
@@ -1507,7 +1815,7 @@ Key& operator[](size_t pos)
 
 ```C++
 size_t size()
-```
+​```
 
 > 返回数组长度
 >
@@ -1519,7 +1827,7 @@ size_t size()
 
 ```C++
 Key getConst(size_t pos)
-```
+​```
 
 > 返回指定索引对应的数组元素
 >
@@ -1535,7 +1843,7 @@ Key getConst(size_t pos)
 
 ```C++
 void setConst(size_t pos, const Key& key)
-```
+​```
 
 > 修改指定索引的数组元素
 >
@@ -1568,14 +1876,14 @@ for (auto it = list.begin(); it != list.end(); ++it) {
 }
 
 list.del(2); // list: 13456789
-```
+​```
 #### Public Functions
 
 ##### List
 
 ```C++
 List()
-```
+​```
 
 > 构造`List`对象
 
@@ -1583,7 +1891,7 @@ List()
 
 ```C++
 Iterator begin()
-```
+​```
 
 > 返回指向列表开始位置的迭代器
 >
@@ -1595,7 +1903,7 @@ Iterator begin()
 
 ```C++
 Iterator end()
-```
+​```
 
 > 返回指向列表末尾的迭代器
 >
@@ -1607,7 +1915,7 @@ Iterator end()
 
 ```C++
 ReverseIterator rbegin()
-```
+​```
 
 > 返回指向列表末尾的反向迭代器
 >
@@ -1619,7 +1927,7 @@ ReverseIterator rbegin()
 
 ```C++
 ReverseIterator rend()
-```
+​```
 
 > 返回指向列表开始位置的反向迭代器
 >
@@ -1631,7 +1939,7 @@ ReverseIterator rend()
 
 ```C++
 ConstIterator cbegin()
-```
+​```
 
 > 返回指向列表开始位置的迭代器
 >
@@ -1643,7 +1951,7 @@ ConstIterator cbegin()
 
 ```C++
 ConstIterator cend()
-```
+​```
 
 > 返回指向列表末尾的迭代器
 >
@@ -1655,7 +1963,7 @@ ConstIterator cend()
 
 ```C++
 ConstReverseIterator crbegin()
-```
+​```
 
 > 返回指向列表末尾的反向迭代器
 > 
@@ -1667,7 +1975,7 @@ ConstReverseIterator crbegin()
 
 ```C++
 ConstReverseIterator crend()
-```
+​```
 
 > 返回指向列表开始位置的反向迭代器
 >
@@ -1679,7 +1987,7 @@ ConstReverseIterator crend()
 
 ```C++
 void push(const Key& k)
-```
+​```
 
 > 增加元素
 >
@@ -1691,7 +1999,7 @@ void push(const Key& k)
 
 ```C++
 Key& get(size_t index)
-```
+​```
 
 > 获取指定索引位置对应的元素
 >
@@ -1707,7 +2015,7 @@ Key& get(size_t index)
 
 ```C++
 void del(size_t index)
-```
+​```
 
 > 删除索引位置对应的元素
 >
@@ -1719,7 +2027,7 @@ void del(size_t index)
 
 ```C++
 void del(Key& delKey)
-```
+​```
 
 > 删除元素
 >
@@ -1731,7 +2039,7 @@ void del(Key& delKey)
 
 ```C++
 Key& operator[](size_t i)
-```
+​```
 
 > 返回索引位置对应的元素
 >
@@ -1747,7 +2055,7 @@ Key& operator[](size_t i)
 
 ```C++
 Key getConst(size_t index)
-```
+​```
 
 > 返回索引位置对应的元素
 > 
@@ -1763,7 +2071,7 @@ Key getConst(size_t index)
 
 ```C++
 void setConst(size_t index, const Key& key)
-```
+​```
 
 > 指定索引位置对应的元素值
 >
@@ -1776,7 +2084,7 @@ void setConst(size_t index, const Key& key)
 
 ```C++
 size_t size()
-```
+​```
 
 > 获取列表的大小
 >
@@ -1810,10 +2118,10 @@ void test_map() {
   for (auto it = map.begin(); it != map.end(); ++it) {
     platon::println("key", it->first, "value", it->second);
   }
-  
+
   map.del("hello");
 }
-```
+​```
 
 #### Public Functions
 
@@ -1821,7 +2129,7 @@ void test_map() {
 
 ```C++
 Map()
-```
+​```
 
 > 构造`map`对象
 
@@ -1829,7 +2137,7 @@ Map()
 
 ```C++
 bool insert(const Key& k, const Value& v)
-```
+​```
 
 > 插入键值对(更新内部缓存)
 >
@@ -1846,7 +2154,7 @@ bool insert(const Key& k, const Value& v)
 
 ```C++
 bool insertConst(const Key& k, const Value& v)
-```
+​```
 
 > 插入键值对(不更新内部缓存)
 >
@@ -1863,7 +2171,7 @@ bool insertConst(const Key& k, const Value& v)
 
 ```C++
 Value getConst(const Key& k)
-```
+​```
 
 > 返回`k`对应的值(不更新到内部缓存)
 >
@@ -1879,7 +2187,7 @@ Value getConst(const Key& k)
 
 ```C++
 Value get(const Key& k)
-```
+​```
 
 > 获取`k`对应的值(更新到内部缓存中)
 >
@@ -1895,7 +2203,7 @@ Value get(const Key& k)
 
 ```C++
 void del(const Key& k)
-```
+​```
 
 > 删除`k`对应的键值对
 >
@@ -1907,7 +2215,7 @@ void del(const Key& k)
 
 ```C++
 Value& operator[](const Key& k)
-```
+​```
 
 > 返回`k`对应的值
 >
@@ -1923,7 +2231,7 @@ Value& operator[](const Key& k)
 
 ```C++
 size_t size()
-```
+​```
 
 > 返回`map`的元素数量
 >
@@ -1936,7 +2244,7 @@ size_t size()
 ```C++
 Iterator begin()
 ConstIterator cbegin()
-```
+​```
 
 > 返回指向容器第一个元素的迭代器
 >
@@ -1949,7 +2257,7 @@ ConstIterator cbegin()
 ```C++
 Iterator end()
 ConstIterator cend()
-```
+​```
 
 > 返回指向容器最后一个元素之后元素的迭代器
 >
@@ -1962,7 +2270,7 @@ ConstIterator cend()
 ```C++
 ReverseIterator rbegin()
 ConstReverseIterator crbegin()
-```
+​```
 
 > 返回指向容器最后一个元素的反向迭代器
 >
@@ -1975,7 +2283,7 @@ ConstReverseIterator crbegin()
 ```C++
 ReverseIterator rend()
 ConstReverseIterator crend()
-```
+​```
 
 > 返回指向容器第一个元素之前元素的反向迭代器
 >
@@ -1991,23 +2299,23 @@ ConstReverseIterator crend()
 #define PlatonAssert(A, ...)
 #define PlatonAssertEQ(A, B, ...)
 #define PlatonAssertNE(A, B, ...)
-```
+​```
 
 Example:
 
 ```C++
 void test_assert() {
-  PlatonAssert(10 > 0，"error msg");
+  PlatonAssert(10 > 0);
   PlatonAssertEQ(10, 10);
   PlatonAssertNE(10, 11);
 }
-```
+​```
 
 ### RETURN
 
 ```C++
 #define RETURN(ret)
-```
+​```
 
 `return`的包装, 关闭内存回收操作, 确保返回值不会被回收.
 
@@ -2018,13 +2326,13 @@ char* getStr() {
   std::string str("hello world");
   RETURN(str.c_str());
 }
-```
+​```
 
 ### PLATON_EVENT
 
 ```C++
 #define PLATON_EVENT(NAME, ...)
-```
+​```
 
 定义`event`
 
@@ -2045,13 +2353,13 @@ class Test : public platon::Contract {
      PLATON_EVENT(say_event, const char*);
    }
 };
-```
+​```
 
 ### PLATON_EMIT_EVENT
 
 ```C++
 #define PLATON_EMIT_EVENT(NAME, ...)
-```
+​```
 
 触发`event`
 
@@ -2073,13 +2381,13 @@ class Test : public platon::Contract {
      PLATON_EMIT_EVENT(say_event, say.c_str());
    }
 };
-```
+​```
 
 ### PLATON_SERIALIZE
 
 ```C++
 #define PLATON_SERIALIZE(TYPE, MEMBERS)
-```
+​```
 
 为指定的类型的成员定义序列化/反序列化API
 
@@ -2094,26 +2402,26 @@ Example:
 struct Test {
   int a;
   std::string b;
-  
+
   PLATON_SERIALIZE(Test, (a)(b));
 }
 
 void use_test {
   char ut_name[] = "use_test";
   platon::StorateType<ut_name, Test> ut;
-  
+
   *ut.a = 1;
   *ut.b = "hello";
-  
+
   ...
 }
-```
+​```
 
 ### PLATON_SERIALIZE_DERIVED
 
 ```C++
 #define PLATON_SERIALIZE_DERIVED(TYPE, BASE, MEMBERS)
-```
+​```
 
 为派生类的成员定义序列化/反序列化API
 
@@ -2129,35 +2437,35 @@ Example:
 struct TestA {
   int a;
   std::string b;
-  
+
   PLATON_SERIALIZE(Test, (a)(b));
 }
 
 struct TestB : public TestA {
   int c;
   int d;
-  
+
   PLATON_SERIALIZE_DERIVED(TestB, (TestA), (c)(d));
 }
 
 void use_test {
   char ut_name[] = "use_test";
   platon::StorateType<ut_name, TestB> ut;
-  
+
   *ut.a = 1;
   *ut.b = "hello";
   *ut.c = 2;
   *ut.d = 3;
-  
+
   ...
 }
-```
+​```
 
 ### PLATON_ABI
 
 ```C++
 #define PLATON_ABI(NAME, MEMBER)
-```
+​```
 
 声明合约abi
 
@@ -2181,4 +2489,85 @@ class TestContract : public platon::Contract {
 
 PLATON_ABI(test_ns::TestContract, get);
 PLATON_ABI(test_ns::TestContract, set);
+​```
+
+## 操作符
+
+### operator `""_n`
+
+`""_n`操作符将字符串字面量转换为字符串常量(const char*), 用于定义/声明
+`platon::StorageType` `platon::db::Map` `platon::db::List` `platon::db::Array`等.
+
+Example:
+
+```C++
+#include <platon/platon.hpp>
+
+typedef platon::StorageType<"test"_n, uint8_t> TestUint8;
+typedef platon::db::Map<"test_map"_n, std::string, std:string> TestMap;
+typedef platon::db::List<"test_list"_n, std::string> TestList;
+typedef platon::db::Array<"test_array"_n, std::string, 10> TestArray;
+​```
+
+## 属性指定符
+
+### [[platon::constant]]
+
+`[[platon::constant]]`用来修饰函数, 承诺该函数不修改stateDB(即不调用setState).
+仅在在生成abi时生效, 使用该属性修饰的函数的constant被标记为true.
+
+**Notes:** `[[platon::constant]]`也可以使用`CONSTANT`代替.
+
+Example:
+
+```C++
+#include <platon/platon.hpp>
+using namespace platon;
+
+class Example : public Contract {
+ public:
+ virtual void init() override {}
+
+ [[platon::constant]]
+ void hi(const char* name) {
+   println("hello ", name);
+ }
+
+ CONSTANT void hello() {
+   println("Hello, PlatON!!!")
+ }
+};
+
+PLATON_ABI(Example, hi);
+PLATON_ABI(Example, hello);
+​```
+
+生成的abi(**注意constant**):
+
+```json
+[
+    {
+        "name": "hi",
+        "inputs": [
+            {
+                "name": "name",
+                "type": "string"
+            }
+        ],
+        "outputs": [],
+        "constant": "true",
+        "type": "function"
+    },
+    {
+        "name": "hello",
+        "inputs": [],
+        "outputs": [],
+        "constant": "true",
+        "type": "function"
+    }
+]
+​```
+
+```
+
 ```

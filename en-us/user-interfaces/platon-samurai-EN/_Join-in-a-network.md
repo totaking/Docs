@@ -1,20 +1,28 @@
 
 ## How to join in PlatON TestNet
 
-1.When client starts the first time, it switches to the ‘Network Configuration’ interface. Select [Join the PlatON Testnet],click [JOINING NETWORK], the system will initiate as testnet node, connect to the testnet, and synchronize transaction data of blocks.
+1.When client starts the first time, it switches to the ‘Network Configuration’ interface. Select a PlatON Testnet, click [Joining xxx network], the client will initiate as testnet node, connect to the testnet, and synchronize transaction data of blocks.
 
 ![Image text](image/Testnet.png)
 
-2.Then the client switches to the ’Welcome to PlatON Samurai’ interface, click [ENTER]. Congratulations! You have successfully joint PlatON TestNet!
+*Tips：*
+
+*Amigo Test Network is the official self-operated test network, the network is stable, the performance is good, it is recommended to use. (does not support other block producers to join) ;*
+
+*The Batalla Test Network is an open, collaborative operational test network that allows conditional block producers to join, but the network may be unstable.*
+
+
+
+2.Then the client switches to the ’Welcome to Samurai’ interface, click [ENTER]. Congratulations! You have successfully joint PlatON TestNet!
 
 ![Image text](image/Welcome_to_Samurai.png)
 
 
-## How to create a PlatON Private Net
+## How to create a PlatON Private-net
 
 ### Creating private-net
 
-1.When client starts the first time as above, it shows ‘Network Configuration’ interface. Please select [Create the PlatON Private-net],click [JOINING NETWORK],  as shown below.
+1.When client starts the first time as above, it shows ‘Network Configuration’ interface. Please click [Create Private-net],  as shown below.
 
 ![Image text](image/private-net.png)
 
@@ -30,7 +38,7 @@
 
 ![Image text](image/Set_nodes.png)
 
-5.Result confirmation at the end. Below is a sample of successful building of a PlatON private network. It is recommended that you click [Backup Wallet] to save the Coinbace Wallet to a secure place.
+5.Result confirmation at the end. Below is a sample of successful building of a PlatON private network. It is recommended that you click [Backup Coinbace Wallet] to save the Coinbace Wallet to a secure place.
 
 ![Image text](image/Private-net_success.png)
 

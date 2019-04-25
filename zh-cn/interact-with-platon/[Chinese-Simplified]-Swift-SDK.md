@@ -1,8 +1,4 @@
 -   [概览](#概览)
--   [版本说明](#版本说明)
-    -   [v0.2.0 更新说明](#v0.2.0-更新说明)
-    -   [v0.3.0 更新说明](#v0.3.0-更新说明)
-    -   [v0.4.0 更新说明](#v0.4.0-更新说明)
 -   [快速入门](#快速入门)
     -   [安装或引入](#安装或引入)
         -   [环境要求](#环境要求)
@@ -11,62 +7,30 @@
 -   [合约](#合约)
     -   [合约示例](#合约示例)
     -   [部署合约](#部署合约)
-        -   [**`platonDeployContract`**](#platondeploycontract)
     -   [合约call调用](#合约call调用)
-        -   [**`platonCall`**](#platoncall)
     -   [合约sendRawTransaction调用](#合约sendrawtransaction调用)
-        -   [**`platonSendRawTransaction`**](#platonsendrawtransaction)
     -   [合约Event](#合约event)
-        -   [**`platonGetTransactionReceipt`**](#platongettransactionreceipt)
     -   [内置合约](#内置合约)
         -   [CandidateContract](#candidatecontract)
-            -   [**`CandidateDeposit`**](#candidatedeposit)
-            -   [**`CandidateApplyWithdraw`**](#candidateapplywithdraw)
-            -   [**`CandidateWithdraw`**](#candidatewithdraw)
-            -   [**`SetCandidateExtra`**](#setcandidateextra)
-            -   [**`CandidateWithdrawInfos`**](#candidatewithdrawinfos)
-            -   [**`CandidateDetails`**](#candidatedetails)
-            -   [**`GetBatchCandidateDetail`**](#getbatchcandidatedetail)
-            -   [**`CandidateList`**](#candidatelist)
-            -   [**`VerifiersList`**](#verifierslist)
         -   [TicketContract](#ticketcontract)
-            -   [**`GetTicketPrice`**](#getticketprice)
-            -   [**`GetPoolRemainder`**](#getpoolremainder)
-            -   [**`GetCandidateEpoch`**](#getcandidateepoch)
-            -   [**`GetTicketDetail`**](#getticketdetail)
-            -   [**`GetBatchTicketDetail`**](#getbatchticketdetail)
-            -   [**`GetBatchCandidateTicketIds`**](#getbatchcandidateticketids)
-            -   [**`VoteTicket`**](#voteticket)
 -   [web3](#web3)
     -   [web3 eth相关 (标准JSON RPC )](#web3-eth相关-标准json-rpc)
 
 # 概览
-> Platon Swift SDK是PlatON面向Swift开发者，提供的PlatON公链的Swift开发工具包
-
-# 版本说明
-
-## v0.2.0 更新说明
-1. 支持PlatON的智能合约
-
-## v0.3.0 更新说明
-1. 实现了PlatON协议中交易类型定义
-2. 增加内置合约CandidateContract
-
-## v0.4.0 更新说明
-1. 增加内置合约TicketContract
+> PlatON Swift SDK是PlatON面向Swift开发者，提供的PlatON公链的Swift开发工具包。
 
 # 快速入门
 
 ## 安装或引入
 
 ### 环境要求
-1. swift4.0以上，iOS 9.0以上
+1. swift4.0以上，iOS 9.0以上。
 
 ### CocoaPods
 
 2. 在Podfile文件中添加引用
 ```
-pod 'platonWeb3', '~> 0.4.0'
+pod 'platonWeb3', '~> 0.6.0'
 ```
 
 
@@ -353,7 +317,7 @@ _ obj : AnyObject?                      //返回数据
 <!--- 1.1 CandidateContract -->
 
 ###  CandidateContract
-> PlatOn经济模型中候选人相关的合约接口 [合约描述]()
+> PlatON经济模型中候选人相关的合约接口 [合约描述](/zh-cn/technologies/platon-ppos/_Probabilistic-POS.md#%E9%AA%8C%E8%AF%81%E6%B1%A0%E5%90%88%E7%BA%A6)。
 
 <!--- 1.1 CandidateDeposit -->
 
@@ -712,128 +676,83 @@ param1描述
     }
 ```
 
-<!--- 1.6 CandidateDetails -->
+<!--- 1.6 GetCandidateDetails -->
 
-#### **`CandidateDetails`**
+#### **`GetCandidateDetails`**
 > 获取候选人信息
 
 **入参**
 
 | **参数名** | **类型** | **参数说明** |
 | ------ | ------ | ------ |
-| nodeId | String  | 节点id, 16进制格式， 0x开头 |
+| nodeId | String  | 多个节点Id通过":"拼接的字符串, 16进制格式 |
 
 **返回**
 
 - String：json格式字符串
 
 ```
-{
-    //质押金额 
-    "Deposit": 200,    
-    //质押金更新的最新块高
-    "BlockNumber": 12206,
-    //所在区块交易索引
-    "TxIndex": 0,
-    //节点Id
-    "CandidateId": "6bad331aa2ec6096b2b6034570e1761d687575b38c3afc3a3b5f892dac4c86d0fc59ead0f0933ae041c0b6b43a7261f1529bad5189be4fba343875548dc9efd3",
-    //节点IP
-    "Host": "192.168.9.76",
-    //节点P2P端口号
-    "Port": "26794",
-    //质押金退款地址
-    "Owner": "0xf8f3978c14f585c920718c27853e2380d6f5db36",
-    //最新质押交易的发送方
-    "From": "0x493301712671ada506ba6ca7891f436d29185821",
-    //附加数据
-    "Extra": "{\"nodeName\":\"xxxx-noedeName\",\"officialWebsite\":\"xxxx-officialWebsite\",\"nodePortrait\":\"group2/M00/00/12/wKgJVlw0XSyAY78cAAH3BKJzz9Y83.jpeg\",\"nodeDiscription\":\"xxxx-nodeDiscription1\",\"nodeDepartment\":\"xxxx-nodeDepartment\"}",
-    //出块奖励佣金比，以10000为基数(eg：5%，则fee=500)
-    "Fee": 500
+[
+    {
+        "Deposit":10000000000000000000000000,
+        "BlockNumber":993,
+        "TxIndex":0,
+        "CandidateId":"e4556b211eb6712ab94d743990d995c0d3cd15e9d78ec0096bba24c48d34f9f79a52ca1f835cec589c5e7daff30620871ba37d6f5f722678af4b2554a24dd75c",
+        "Host":"192.168.120.84",
+        "Port":"16789",
+        "Owner":"0x493301712671ada506ba6ca7891f436d29185821",
+        "Extra":"{"nodeName":"nodeTest84","officialWebsite":"","time":1554692841011,"nodePortrait":"4","nodeDiscription":"A test network node deployed in Washington","nodeDepartment":"Washington test node"}",
+        "Fee":2000,
+        "TxHash":"0x0000000000000000000000000000000000000000000000000000000000000000",
+        "TOwner":"0x0000000000000000000000000000000000000000"
+    },
+    {
+        "Deposit":10000000000000000000000000,
+        "BlockNumber":987,
+        "TxIndex":0,
+        "CandidateId":"97e424be5e58bfd4533303f8f515211599fd4ffe208646f7bfdf27885e50b6dd85d957587180988e76ae77b4b6563820a27b16885419e5ba6f575f19f6cb36b0",
+        "Host":"192.168.120.81",
+        "Port":"16789",
+        "Owner":"0x493301712671ada506ba6ca7891f436d29185821",
+        "Extra":"{"nodeName":"nodeTest81","officialWebsite":"","time":1554692834651,"nodePortrait":"1","nodeDiscription":"A test network node deployed in Southeast Asia","nodeDepartment":"Southeast Asia test node"}",
+        "Fee":500,
+        "TxHash":"0x0000000000000000000000000000000000000000000000000000000000000000",
+        "TOwner":"0x0000000000000000000000000000000000000000"
+    }
+]
+```
+
+**合约使用**
+```
+func GetCandidateDetails(){
+   var nodes = "0xe4556b211eb6712ab94d743990d995c0d3cd15e9d78ec0096bba24c48d34f9f79a52ca1f835cec589c5e7daff30620871ba37d6f5f722678af4b2554a24dd75c"
+    nodes = nodes + ":"
+    nodes = nodes + "0x97e424be5e58bfd4533303f8f515211599fd4ffe208646f7bfdf27885e50b6dd85d957587180988e76ae77b4b6563820a27b16885419e5ba6f575f19f6cb36b0"
+    self.showLoading()
+    contract.GetCandidateDetails(batchNodeIds: nodes) { (result, data) in
+        switch result{
+        case .success:
+            if let data = data as? String{
+                let message = "result:\(data)"
+                self.showMessage(text: message)
+                print(message)
+            }
+        case .fail(let code, let errMsg):
+            let message = "error code:\(code ?? 0) errMsg:\(errMsg ?? "")"
+            self.showMessage(text: message)
+            print("error code:\(code ?? 0) errMsg:\(errMsg ?? "")")
+        }
+    }
 }
 ```
 
-**合约使用**
-```
-    func CandidateDetails(){
-        contract.CandidateDetails(nodeId: "0x6bad331aa2ec6096b2b6034570e1761d687575b38c3afc3a3b5f892dac4c86d0fc59ead0f0933ae041c0b6b43a7261f1529bad5189be4fba343875548dc9efd3") { (result, data) in
-            switch result{
-            case .success:
-                if let data = data as? String{
-                    print("result:\(data)")
-                }
-            case .fail(let code, let errMsg):
-                print("error code:\(code ?? 0) errMsg:\(errMsg ?? "")")
-            }
-        }
-    }
-```
-
-<!--- 1.7 GetBatchCandidateDetail -->
-
-#### **`GetBatchCandidateDetail`**
-> 批量获取候选人信息
-
-**入参**
-
-| **参数名** | **类型** | **参数说明** |
-| ------ | ------ | ------ |
-| nodeIds | String  | 节点id列表，中间通过`:`号分割 |
-
-**返回**
-
-- String：json格式字符串
-
-```
-[{
-    "Deposit": 11100000000000000000,
-    "BlockNumber": 13721,
-    "TxIndex": 0,
-    "CandidateId": "c0e69057ec222ab257f68ca79d0e74fdb720261bcdbdfa83502d509a5ad032b29d57c6273f1c62f51d689644b4d446064a7c8279ff9abd01fa846a3555395535",
-    "Host": "192.168.9.76",
-    "Port": "26793",
-    "Owner": "0x3ef573e439071c87fe54287f07fe1fd8614f134c",
-    "From": "0x3ef573e439071c87fe54287f07fe1fd8614f134c",
-    "Extra": "{\"nodeName\":\"xxxx-noedeName\",\"officialWebsite\":\"xxxx-officialWebsite\",\"nodePortrait\":\"group2/M00/00/12/wKgJVlw0XSyAY78cAAH3BKJzz9Y83.jpeg\",\"nodeDiscription\":\"xxxx-nodeDiscription1\",\"nodeDepartment\":\"xxxx-nodeDepartment\"}",
-    "Fee": 9900
-}, {
-    "Deposit": 200,
-    "BlockNumber": 12206,
-    "TxIndex": 0,
-    "CandidateId": "6bad331aa2ec6096b2b6034570e1761d687575b38c3afc3a3b5f892dac4c86d0fc59ead0f0933ae041c0b6b43a7261f1529bad5189be4fba343875548dc9efd3",
-    "Host": "192.168.9.76",
-    "Port": "26794",
-    "Owner": "0xf8f3978c14f585c920718c27853e2380d6f5db36",
-    "From": "0x493301712671ada506ba6ca7891f436d29185821",
-    "Extra": "{\"nodeName\":\"xxxx-noedeName\",\"officialWebsite\":\"xxxx-officialWebsite\",\"nodePortrait\":\"group2/M00/00/12/wKgJVlw0XSyAY78cAAH3BKJzz9Y83.jpeg\",\"nodeDiscription\":\"xxxx-nodeDiscription1\",\"nodeDepartment\":\"xxxx-nodeDepartment\"}",
-    "Fee": 500
-}]
-```
-
-**合约使用**
-```
-    func GetBatchCandidateDetail(){
-       var nodes = "0x6bad331aa2ec6096b2b6034570e1761d687575b38c3afc3a3b5f892dac4c86d0fc59ead0f0933ae041c0b6b43a7261f1529bad5189be4fba343875548dc9efd3"
-        nodes = nodes + ":"
-        nodes = nodes + "0xc0e69057ec222ab257f68ca79d0e74fdb720261bcdbdfa83502d509a5ad032b29d57c6273f1c62f51d689644b4d446064a7c8279ff9abd01fa846a3555395535"
-
-        contract.GetBatchCandidateDetail(batchNodeIds: nodes) { (result, data) in
-            switch result{
-            case .success:
-                if let data = data as? String{
-                    print("result:\(data)")
-                }
-            case .fail(let code, let errMsg):
-                print("error code:\(code ?? 0) errMsg:\(errMsg ?? "")")
-            }
-        }
-    }
-```
-
-<!--- 1.8 CandidateList -->
 
 
-#### **`CandidateList`**
-> 获取所有入围节点的信息列表
+<!--- 1.7 GetCandidateList -->
+
+
+#### **`GetCandidateList`**
+> 获取所有入围节点的信息列表（提名 + 候选）
 
 **入参**
 
@@ -841,53 +760,91 @@ param1描述
 
 **返回**
 
-- String：json格式字符串
+String：json格式字符串
+
+[][]: 二维数组，不存在返回空二维数组 [0]:提名人列表，不存在返回空数组 [1]:候选人列表，不存在返回空数组
+
 
 ```
-[{
-    "Deposit": 11100000000000000000,
-    "BlockNumber": 13721,
-    "TxIndex": 0,
-    "CandidateId": "c0e69057ec222ab257f68ca79d0e74fdb720261bcdbdfa83502d509a5ad032b29d57c6273f1c62f51d689644b4d446064a7c8279ff9abd01fa846a3555395535",
-    "Host": "192.168.9.76",
-    "Port": "26793",
-    "Owner": "0x3ef573e439071c87fe54287f07fe1fd8614f134c",
-    "From": "0x3ef573e439071c87fe54287f07fe1fd8614f134c",
-    "Extra": "{\"nodeName\":\"xxxx-noedeName\",\"officialWebsite\":\"xxxx-officialWebsite\",\"nodePortrait\":\"group2/M00/00/12/wKgJVlw0XSyAY78cAAH3BKJzz9Y83.jpeg\",\"nodeDiscription\":\"xxxx-nodeDiscription1\",\"nodeDepartment\":\"xxxx-nodeDepartment\"}",
-    "Fee": 9900
-}, {
-    "Deposit": 200,
-    "BlockNumber": 12206,
-    "TxIndex": 0,
-    "CandidateId": "6bad331aa2ec6096b2b6034570e1761d687575b38c3afc3a3b5f892dac4c86d0fc59ead0f0933ae041c0b6b43a7261f1529bad5189be4fba343875548dc9efd3",
-    "Host": "192.168.9.76",
-    "Port": "26794",
-    "Owner": "0xf8f3978c14f585c920718c27853e2380d6f5db36",
-    "From": "0x493301712671ada506ba6ca7891f436d29185821",
-    "Extra": "{\"nodeName\":\"xxxx-noedeName\",\"officialWebsite\":\"xxxx-officialWebsite\",\"nodePortrait\":\"group2/M00/00/12/wKgJVlw0XSyAY78cAAH3BKJzz9Y83.jpeg\",\"nodeDiscription\":\"xxxx-nodeDiscription1\",\"nodeDepartment\":\"xxxx-nodeDepartment\"}",
-    "Fee": 500
-}]
+[
+	[{
+		"Deposit": 10000000000000000000000000,
+		"BlockNumber": 14035,
+		"TxIndex": 0,
+		"CandidateId": "cd68759baba315ddf5fb5abeab4c456073a477a240204136c7ef3068d4b03b19093f9b42c96188831a1d8b4130c4fc73b173bc97d40904eb163ec2c989951b4a",
+		"Host": "10.10.8.18",
+		"Port": "16790",
+		"Owner": "0x493301712671ada506ba6ca7891f436d29185821",
+		"Extra": "{\"nodeName\":\"v-Test3\",\"officialWebsite\":\"\",\"time\":1554707178046,\"nodePortrait\":\"4\",\"nodeDiscription\":\"A test network node deployed in Washington\",\"nodeDepartment\":\"Washington test node\"}",
+		"Fee": 2000,
+		"TxHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+		"TOwner": "0x0000000000000000000000000000000000000000"
+	}, {
+		"Deposit": 10000000000000000000000000,
+		"BlockNumber": 991,
+		"TxIndex": 0,
+		"CandidateId": "858d6f6ae871e291d3b7b2b91f7369f46deb6334e9dacb66fa8ba6746ee1f025bd4c090b17d17e0d9d5c19fdf81eb8bde3d40a383c9eecbe7ebda9ca95a3fb94",
+		"Host": "192.168.120.83",
+		"Port": "16789",
+		"Owner": "0x493301712671ada506ba6ca7891f436d29185821",
+		"Extra": "{\"nodeName\":\"nodeTest83\",\"officialWebsite\":\"\",\"time\":1554692838935,\"nodePortrait\":\"3\",\"nodeDiscription\":\"A test network node deployed in North America\",\"nodeDepartment\":\"North American test node\"}",
+		"Fee": 1500,
+		"TxHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+		"TOwner": "0x0000000000000000000000000000000000000000"
+	}],
+	[{
+		"Deposit": 10000000000000000000000000,
+		"BlockNumber": 14043,
+		"TxIndex": 0,
+		"CandidateId": "f9463ae57036e703e22565c0145ee552567988b19dd2b71f2edd8270da4e7298d64d1040370c2d56760c8a6b3a554c0e0d420bc5d16d5d28b265e23a1b22c30f",
+		"Host": "10.10.8.24",
+		"Port": "16790",
+		"Owner": "0x493301712671ada506ba6ca7891f436d29185821",
+		"Extra": "{\"nodeName\":\"v-Test7\",\"officialWebsite\":\"\",\"time\":1554707186363,\"nodePortrait\":\"4\",\"nodeDiscription\":\"A test network node deployed in Washington\",\"nodeDepartment\":\"Washington test node\"}",
+		"Fee": 2000,
+		"TxHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+		"TOwner": "0x0000000000000000000000000000000000000000"
+	},  {
+		"Deposit": 1000000000000000000000000,
+		"BlockNumber": 14328,
+		"TxIndex": 0,
+		"CandidateId": "3f64bf13e229869bd1156152e02c10cb677abd448f19ad6103a8b5432e1d2e1ed68803de414bec165534d553ed058f85c8ebeac8ff8ca9180fbf33be69cabdd5",
+		"Host": "18.10.1.63",
+		"Port": "8809",
+		"Owner": "0x493301712671ada506ba6ca7891f436d29185821",
+		"Extra": "{\"nodeName\":\"Xuni-19\",\"officialWebsite\":\"https://www.platon.network/\",\"time\":1554707502720,\"nodePortrait\":\"1\",\"nodeDiscription\":\"Xuni-19-nodeDiscription\",\"nodeDepartment\":\"Xuni-19-nodeDepartment\"}",
+		"Fee": 500,
+		"TxHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+		"TOwner": "0x0000000000000000000000000000000000000000"
+	}]
+]
+
 ```
 
 **合约使用**
 ```
-    func CandidateList(){
-        contract.CandidateList { (result, data) in
-            switch result{
-            case .success:
-                if let data = data as? String{
-                    print("result:\(data)")
-                }
-            case .fail(let code, let errMsg):
-                print("error code:\(code ?? 0) errMsg:\(errMsg ?? "")")
+func GetCandidateList(){
+    self.showLoading()
+    contract.GetCandidateList { (result, data) in
+        switch result{
+        case .success:
+            if let data = data as? String{
+                let message = "result:\(data)"
+                print(message)
+                self.showMessage(text: message)
             }
+        case .fail(let code, let errMsg):
+            let message = "error code:\(code ?? 0) errMsg:\(errMsg ?? "")"
+            self.showMessage(text: message)
+            print("error code:\(code ?? 0) errMsg:\(errMsg ?? "")")
         }
     }
+}
 ```
 
-<!--- 1.9 VerifiersList -->
+<!--- 1.9 GetVerifiersList -->
 
-#### **`VerifiersList`**
+#### **`GetVerifiersList`**
 > 获取参与当前共识的验证人列表
 
 **入参**
@@ -899,55 +856,65 @@ param1描述
 - String：json格式字符串
 
 ```
+
 [{
-    "Deposit": 11100000000000000000,
-    "BlockNumber": 13721,
-    "TxIndex": 0,
-    "CandidateId": "c0e69057ec222ab257f68ca79d0e74fdb720261bcdbdfa83502d509a5ad032b29d57c6273f1c62f51d689644b4d446064a7c8279ff9abd01fa846a3555395535",
-    "Host": "192.168.9.76",
-    "Port": "26793",
-    "Owner": "0x3ef573e439071c87fe54287f07fe1fd8614f134c",
-    "From": "0x3ef573e439071c87fe54287f07fe1fd8614f134c",
-    "Extra": "{\"nodeName\":\"xxxx-noedeName\",\"officialWebsite\":\"xxxx-officialWebsite\",\"nodePortrait\":\"group2/M00/00/12/wKgJVlw0XSyAY78cAAH3BKJzz9Y83.jpeg\",\"nodeDiscription\":\"xxxx-nodeDiscription1\",\"nodeDepartment\":\"xxxx-nodeDepartment\"}",
-    "Fee": 9900
+	"Deposit": 10000000000000000000000000,
+	"BlockNumber": 14035,
+	"TxIndex": 0,
+	"CandidateId": "cd68759baba315ddf5fb5abeab4c456073a477a240204136c7ef3068d4b03b19093f9b42c96188831a1d8b4130c4fc73b173bc97d40904eb163ec2c989951b4a",
+	"Host": "10.10.8.18",
+	"Port": "16790",
+	"Owner": "0x493301712671ada506ba6ca7891f436d29185821",
+	"Extra": "{\"nodeName\":\"v-Test3\",\"officialWebsite\":\"\",\"time\":1554707178046,\"nodePortrait\":\"4\",\"nodeDiscription\":\"A test network node deployed in Washington\",\"nodeDepartment\":\"Washington test node\"}",
+	"Fee": 2000,
+	"TxHash": "0xba390393432dd7f5471d7e3819c9c0e82e3fb6bd1480afcdf249199e70e027e4",
+	"TOwner": "0x0549e3b659dbd6c3d3dd36463228b22bd56e86da"
 }, {
-    "Deposit": 200,
-    "BlockNumber": 12206,
-    "TxIndex": 0,
-    "CandidateId": "6bad331aa2ec6096b2b6034570e1761d687575b38c3afc3a3b5f892dac4c86d0fc59ead0f0933ae041c0b6b43a7261f1529bad5189be4fba343875548dc9efd3",
-    "Host": "192.168.9.76",
-    "Port": "26794",
-    "Owner": "0xf8f3978c14f585c920718c27853e2380d6f5db36",
-    "From": "0x493301712671ada506ba6ca7891f436d29185821",
-    "Extra": "{\"nodeName\":\"xxxx-noedeName\",\"officialWebsite\":\"xxxx-officialWebsite\",\"nodePortrait\":\"group2/M00/00/12/wKgJVlw0XSyAY78cAAH3BKJzz9Y83.jpeg\",\"nodeDiscription\":\"xxxx-nodeDiscription1\",\"nodeDepartment\":\"xxxx-nodeDepartment\"}",
-    "Fee": 500
+	"Deposit": 10000000000000000000000000,
+	"BlockNumber": 991,
+	"TxIndex": 0,
+	"CandidateId": "858d6f6ae871e291d3b7b2b91f7369f46deb6334e9dacb66fa8ba6746ee1f025bd4c090b17d17e0d9d5c19fdf81eb8bde3d40a383c9eecbe7ebda9ca95a3fb94",
+	"Host": "192.168.120.83",
+	"Port": "16789",
+	"Owner": "0x493301712671ada506ba6ca7891f436d29185821",
+	"Extra": "{\"nodeName\":\"nodeTest83\",\"officialWebsite\":\"\",\"time\":1554692838935,\"nodePortrait\":\"3\",\"nodeDiscription\":\"A test network node deployed in North America\",\"nodeDepartment\":\"North American test node\"}",
+	"Fee": 1500,
+	"TxHash": "0xf775824b48a7c6a9938cb681b964ae27b680b4874f893f00dbe12cb3f62fbe4c",
+	"TOwner": "0x49a6f3db89e76b594284fafe9936e2f384553309"
 }]
+
 ```
 
 合约使用：
 ```
-    func VerifiersList(){
-        contract.VerifiersList { (result, data) in
-            switch result{
-            case .success:
-                if let data = data as? String{
-                    print("result:\(data)")
-                }
-            case .fail(let code, let errMsg):
-                print("error code:\(code ?? 0) errMsg:\(errMsg ?? "")")
+func GetVerifiersList(){
+    self.showLoading()
+    contract.GetVerifiersList { (result, data) in
+        switch result{
+        case .success:
+            if let data = data as? String{
+                let message = "result:\(data)"
+                self.showMessage(text: message)
+                print(message)
             }
+        case .fail(let code, let errMsg):
+            let message = "error code:\(code ?? 0) errMsg:\(errMsg ?? "")"
+            self.showMessage(text: message)
+            print("error code:\(code ?? 0) errMsg:\(errMsg ?? "")")
         }
     }
+}
 ```
 
 <!--- 2 TicketContract -->
 
+
 ###  TicketContract
-> PlatOn经济模型中投票相关的合约接口 [合约描述](/zh-cn/technologies/platon-ppos/_Probabilistic-POS.md#%E9%AA%8C%E8%AF%81%E6%B1%A0%E5%90%88%E7%BA%A6)。
+> PlatON经济模型中票池相关的合约接口 [合约描述](/zh-cn/technologies/platon-ppos/_Probabilistic-POS.md#%e7%a5%a8%e6%b1%a0%e5%90%88%e7%ba%a6%e6%8e%a5%e5%8f%a3)。
 
 <!--- 2.1 GetTicketPrice -->
-
 #### **`GetTicketPrice`**
+
 > 获取票价
 
 **入参**
@@ -962,20 +929,20 @@ param1描述
 合约方法
 
 ```
-    func GetTicketPrice(){
-        contract.GetTicketPrice { (result, data) in
-            switch result{
-            case .success:
-                if let price = data as? String{
-                    let text = "price is:\(price)"
-                    self.showMessage(text: text)
-                }
-            case .fail(let code, let errMsg):
-                let text = "error code:\(code ?? 0) errMsg:\(errMsg ?? "")"
+func GetTicketPrice(){
+    contract.GetTicketPrice { (result, data) in
+        switch result{
+        case .success:
+            if let price = data as? String{
+                let text = "price is:\(price)"
                 self.showMessage(text: text)
             }
+        case .fail(let code, let errMsg):
+            let text = "error code:\(code ?? 0) errMsg:\(errMsg ?? "")"
+            self.showMessage(text: text)
         }
     }
+}
 ```
 
 <!--- 2.2 GetPoolRemainder -->
@@ -996,21 +963,20 @@ param1描述
 合约方法
 
 ```
-    func GetPoolRemainder() {
-        contract.GetPoolRemainder { (result, data) in
-            switch result{
-                
-            case .success:
-                if let remain = data as? String{
-                    let text = "PoolRemainder is:\(remain)"
-                    self.showMessage(text: text)
-                }
-            case .fail(let code, let errMsg):
-                let text = "error code:\(code ?? 0) errMsg:\(errMsg ?? "")"
+func GetPoolRemainder() {
+    contract.GetPoolRemainder { (result, data) in
+        switch result{
+        case .success:
+            if let remain = data as? String{
+                let text = "PoolRemainder is:\(remain)"
                 self.showMessage(text: text)
             }
+        case .fail(let code, let errMsg):
+            let text = "error code:\(code ?? 0) errMsg:\(errMsg ?? "")"
+            self.showMessage(text: text)
         }
     }
+}
 ```
 
 <!--- 2.3 GetCandidateEpoch -->
@@ -1051,15 +1017,16 @@ param1描述
 ```
 
 
-<!--- 2.4 GetTicketDetail -->
+<!--- 2.4 GetTicketCountByTxHash -->
 
-#### **`GetTicketDetail`**
-> 获取票详情
+#### **`GetTicketCountByTxHash`**
+> (批量)获取交易的有效选票数量
+
 **入参**
 
 | **参数名** | **类型** | **参数说明** |
 | ------ | ------ | ------ |
-| ticketId | String  | 选票ID |
+| ticketId | String  | 多个txHash通过":"拼接的字符串 |
 | completion |  PlatonCommonCompletion | 回调闭包 |
 
 
@@ -1069,13 +1036,8 @@ param1描述
 
 ```
 {
-    "TicketId": "0x6bf2236d95a98c798abf760e43d8a1a0f375ce095f6f286198053800262988c5",  //票Id
-    "Owner": "0x493301712671ada506ba6ca7891f436d29185821",  //票的所属者
-    "Deposit": 1000000000000000000,  //购票时的票价
-    "CandidateId": "4f6c8fd10bfb512793f81a3594120c76b6991d3d06c0cc652035cbfae3fcd7cdc3f3d7a82021dfdb9ea99f014755ec1a640d832a0362b47be688bb31d504f62d",  //候选人Id（节点Id）
-    "BlockNumber": 15548,   //购票时的块高
-    "State": 1,         //选票状态（1->正常，2->被选中，3->过期，4->掉榜）
-    "RBlockNumber": 0   //票被释放时的块高
+	"0x02b7b41469782764fcbb2d9d4e9461e60ce3f92c098fce12dbffb07634934f74": 2,
+	"0x33767704d735a180ef2ce2f18b03e3ae46141f4de71c7f842cf3069aafb4f20e": 2
 }
 ```
 
@@ -1083,107 +1045,40 @@ param1描述
 合约方法
 
 ```
-    func GetTicketDetail(){
-        guard self.ticketIDs.count > 0 else {
-            self.showMessage(text: "ticketIDs count is 0, vote for candidate first!")
-            return
-        }
-        contract.GetTicketDetail(ticketId: self.ticketIDs.first!) { (result, data) in
-            switch result{
-            case .success:
-                if let detail = data as? String{
-                    let text = "GetTicketDetail:\(detail)"
-                    self.showMessage(text: text)
-                }
-            case .fail(let code, let errMsg):
-                let text = "error code:\(code ?? 0) errMsg:\(errMsg ?? "")"
-                self.showMessage(text: text)
+func GetTicketCountByTxHash(){
+    guard self.txHashs.count > 0 else {
+        self.showMessage(text: "txHashs count is 0, vote for candidate first!")
+        return
+    }
+    self.showLoading()
+    contract.GetTicketCountByTxHash(ticketIds: self.txHashs) { (result, data) in
+        switch result{
+        case .success:
+            if let detail = data as? String{
+                self.showMessage(text: "GetTicketCountByTxHash :" + detail)
             }
+        case .fail(let code, let errMsg):
+            let text = "error code:\(code ?? 0) errMsg:\(errMsg ?? "")"
+            self.showMessage(text: text)
         }
     }
+}
 ```
 
 
-<!--- 2.5 GetBatchTicketDetail -->
+<!--- 2.5 GetCandidateTicketCount -->
 
-#### **`GetBatchTicketDetail`**
-> 批量获取票详情
+#### **`GetCandidateTicketCount`**
+
+
+> (批量)获取指定候选人的有效选票数量
 
 **入参**
 
 | **参数名** | **类型** | **参数说明** |
 | ------ | ------ | ------ |
-| ticketIds | Array  | 选票ID数组 |
+| nodeIds | [String] | 多个nodeId数组 |
 | completion |  PlatonCommonCompletion | 回调闭包 |
-
-
-
-**返回**
-
-- String：json格式字符串
-
-```
-[
-    {
-        "TicketId": "0x6bf2236d95a98c798abf760e43d8a1a0f375ce095f6f286198053800262988c5",
-        "Owner": "0x493301712671ada506ba6ca7891f436d29185821",
-        "Deposit": 1000000000000000000,
-        "CandidateId": "4f6c8fd10bfb512793f81a3594120c76b6991d3d06c0cc652035cbfae3fcd7cdc3f3d7a82021dfdb9ea99f014755ec1a640d832a0362b47be688bb31d504f62d",
-        "BlockNumber": 15548,
-        "State": 1,
-        "RBlockNumber": 0
-    },
-    {
-        "TicketId": "0x7f3d95634ebdbf0121a7de207b00cf2d2b4846000ec41b4a8a88d1e019701a5e",
-        "Owner": "0x493301712671ada506ba6ca7891f436d29185821",
-        "Deposit": 1000000000000000000,
-        "CandidateId": "4f6c8fd10bfb512793f81a3594120c76b6991d3d06c0cc652035cbfae3fcd7cdc3f3d7a82021dfdb9ea99f014755ec1a640d832a0362b47be688bb31d504f62d",
-        "BlockNumber": 15548,
-        "State": 1,
-        "RBlockNumber": 0
-    }
-]
-```
-
-合约方法
-
-```
-    func GetBatchTicketDetail(){
-        
-        guard self.ticketIDs.count > 0 else {
-            self.showMessage(text: "ticketIDs count is 0, vote for candidate first!")
-            return
-        }
-        self.showLoading()
-        contract.GetBatchTicketDetail(ticketIds: self.ticketIDs) { (result, data) in
-            switch result{
-                
-            case .success:
-                if let detail = data as? String{
-                    self.showMessage(text: "CandidateEpoch :" + detail)
-                }
-            case .fail(let code, let errMsg):
-                let text = "error code:\(code ?? 0) errMsg:\(errMsg ?? "")"
-                self.showMessage(text: text)
-            }
-        }
-    }
-```
-
-<!--- 2.6 GetBatchCandidateTicketIds -->
-
-#### **`GetBatchCandidateTicketIds`**
-> 批量获取候选人选票
-
-**入参**
-
-| **参数名** | **类型** | **参数说明** |
-| ------ | ------ | ------ |
-| nodeIds | Array  | 候选人节点ID数组 |
-| completion |  PlatonCommonCompletion | 回调闭包 |
-
-
-
 
 **返回**
 
@@ -1191,39 +1086,33 @@ param1描述
 
 ```
 {
-    //节点id
-    "01d033b5b07407e377a3eb268bdc3f07033774fb845b7826a6b741430c5e6b719bda5c4877514e8052fa5dbc2f20fb111a576f6696b6a16ca765de49e11e0541": [
-        //节点id下对应的选票
-        "0xb04bb4680653b39790681234bf95499aff790c5adfc5e07732a9efcc2700dd4d",  
-        "0x025c3f4c27707afceaef05f844027d6f19186c58a021477082a567b7a42edbaa"
-    ],
-    "4f6c8fd10bfb512793f81a3594120c76b6991d3d06c0cc652035cbfae3fcd7cdc3f3d7a82021dfdb9ea99f014755ec1a640d832a0362b47be688bb31d504f62d": [
-        "0x10bf96889470610767243064e21741d91cd7380864b59eeb06478c1f1814d5e8",
-        "0x61dc68f275183aa230b58a660a46cf23de84b54c174ab8b87217797981988bf4"
-    ]
+	"cd68759baba315ddf5fb5abeab4c456073a477a240204136c7ef3068d4b03b19093f9b42c96188831a1d8b4130c4fc73b173bc97d40904eb163ec2c989951b4a": 1035
 }
 ```
 
 合约方法
 
 ```
-    func GetBatchCandidateTicketIds(){
-        contract.GetBatchCandidateTicketIds(nodeIds: ["0xaafbc9c699270bd33c77f1b2a5c3653eaf756f1860891327dfd8c29960a51c9aebb6c081cbfe2499db71e9f4c19e609f44cbd9514e59b6066e5e895b8b592abf"]) { (result, data) in
-            switch result{
-                
-            case .success:
-                if let tickets = data as? String{
-                    self.showMessage(text: "GetBatchCandidateTicketIds :" + tickets)
-                }
-            case .fail(let code, let errMsg):
-                let text = "error code:\(code ?? 0) errMsg:\(errMsg ?? "")"
-                self.showMessage(text: text)
+func GetCandidateTicketCount(){
+    guard self.nodeId != nil else {
+        self.showMessage(text: "nodeId is empty")
+        return
+    }
+    contract.GetCandidateTicketCount(nodeIds: [self.nodeId!]) { (result, data) in
+        switch result{
+        case .success:
+            if let tickets = data as? String{
+                self.showMessage(text: "GetCandidateTicketCount :" + tickets)
             }
+        case .fail(let code, let errMsg):
+            let text = "error code:\(code ?? 0) errMsg:\(errMsg ?? "")"
+            self.showMessage(text: text)
         }
     }
+}
 ```
 
-<!--- 2.7 VoteTicket -->
+<!--- 2.6 VoteTicket -->
 #### **`VoteTicket`**
 > 给节点投票
 
@@ -1231,7 +1120,7 @@ param1描述
 
 | **参数名** | **类型** | **参数说明** |
 | ------ | ------ | ------ |
-| count | UInt64  | 票数量 |
+| count | UInt32  | 票数量 |
 | price | BigUInt | 票价 |
 | nodeId | String | 节点ID |
 | sender  | String  | 账户地址|
@@ -1259,52 +1148,43 @@ param1描述
 合约方法
 
 ```
-    func VoteTicket(){
-        self.showLoading()
-        contract.VoteTicket(count: 5, price: BigUInt("1")!, nodeId: "0xaafbc9c699270bd33c77f1b2a5c3653eaf756f1860891327dfd8c29960a51c9aebb6c081cbfe2499db71e9f4c19e609f44cbd9514e59b6066e5e895b8b592abf", sender: sender, privateKey: privateKey, gasPrice: gasPrice, gas: gas) { (result, data) in
-            switch result{
-                
-            case .success:
-                if let data = data as? Data{
-                    print("vote hash is is:\(data.toHexString())")
-                    
-                    web3.eth.platonGetTransactionReceipt(txHash: data.toHexString(), loopTime: 15, completion: { (result, receipt) in
-                        if let receipt = receipt as? EthereumTransactionReceiptObject{
-                            if String((receipt.status?.quantity)!) == "1"{
-                                let rlpItem = try? RLPDecoder().decode((receipt.logs.first?.data.bytes)!)
-                                if (rlpItem?.array?.count)! > 0{
-                                    let message = ABI.stringDecode(data: Data(rlpItem!.array![0].bytes!))
-                                    
-                                    guard let dic = try? JSONSerialization.jsonObject(with: message.data(using: .utf8)!, options: .mutableContainers) as? [String:Any], let count = Int(dic?["Data"] as? String ?? "") else{
-                                        let message = "Fatal Error: data parser error!"
-                                        print(message)
-                                        self.showMessage(text: message)
-                                        
-                                        return
-                                    }
-                                    
-                                    //variable count is the vote numbers that take effect on chain
-                                    //generate ticket from transaction hash
-                                    let tickets = VoteContract.generateTickets(txHash: data, count: UInt32(count))
-                                    let text = "ticket id:\(tickets)"
-                                    print(text)
-                                    self.showMessage(text: text)
-                                    self.ticketIDs.append(contentsOf: tickets)
-                                }
-                            }else if String((receipt.status?.quantity)!) == "0"{
-                                let message = "VoteTicket receipt status: 0"
+func onVoteWithNodeId(nodeId : String) {
+    self.showLoading()
+    contract.VoteTicket(count: 2, price: self.ticketPrice!, nodeId: nodeId, sender: sender, privateKey: privateKey, gasPrice: gasPrice, gas: gas) { (result, data) in
+        switch result{
+        case .success:
+            if let data = data as? Data{
+                print("vote hash is is:\(data.toHexString())")
+                web3.eth.platonGetTransactionReceipt(txHash: data.toHexString(), loopTime: 15, completion: { (result, receipt) in
+                    if let receipt = receipt as? EthereumTransactionReceiptObject{
+                        if String((receipt.status?.quantity)!) == "1"{
+                            guard receipt.logs.count > 0 else {
+                                let message = "Fatal Error: receipt.logs count = 0!"
                                 print(message)
                                 self.showMessage(text: message)
+                                return
                             }
+                            let rlpItem = try? RLPDecoder().decode((receipt.logs.first?.data.bytes)!)
+                            if (rlpItem?.array?.count)! > 0{
+                                let message = ABI.stringDecode(data: Data(rlpItem!.array![0].bytes!))
+                                self.showMessage(text: message)
+                                self.txHashs.append(data.toHexString())
+                                return
+                            }
+                        }else if String((receipt.status?.quantity)!) == "0"{
+                            let message = "ERROR:VoteTicket receipt status: 0"
+                            print(message)
+                            self.showMessage(text: message)
                         }
-                    })
-                }
-            case .fail(let code, let errMsg):
-                let text = "error code:\(code ?? 0) errMsg:\(errMsg ?? "")"
-                self.showMessage(text: text)
+                    }
+                })
             }
+        case .fail(let code, let errMsg):
+            let text = "error code:\(code ?? 0) errMsg:\(errMsg ?? "")"
+            self.showMessage(text: text)
         }
     }
+}
 ```
 
 
@@ -1317,4 +1197,4 @@ param1描述
 
 # web3
 ## web3 eth相关 (标准JSON RPC )
-- Swift可 api的使用请参考[Web3.swift github](https://github.com/Boilertalk/Web3.swift)
+- 相关api的使用请参考[Web3.swift github](https://github.com/Boilertalk/Web3.swift)

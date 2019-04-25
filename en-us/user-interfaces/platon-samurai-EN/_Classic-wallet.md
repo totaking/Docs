@@ -9,7 +9,7 @@
 
 ![Image text](image/Wallet_info_input.png)
 
-3.The wallet is created successfully. The page displays the created wallet [Label], [Address], [Public Key], [Signature Scheme], [Private Key], and pay attention to the backup wallet private key and file, as shown in the following figure:
+3.The wallet is created successfully. The page displays the created wallet's [Address], [Public Key], [Signature Scheme], [Private Key], and pay attention to the backup wallet private key and file, as shown in the following figure:
 
 ![Image text](image/Wallet_success.png)
 
@@ -17,20 +17,18 @@
 
 1. *The password is used for encrypting the wallet key file. Please make sure to memorize the wallet password. Lost of password means lost of your wallet,  and cannot be recovered, since the server doesn't store your password as well. So never lost the wallet password.*
 
-2. *Disk damage, system re-installation, or mistaken deletion will result in the loss of .json file. Therefor, be sure to back up the encrypted .json file or the private key in plain text, and ensure they won’t be leaked, deleted or lost. Once lost, the wallet cannot be retrieved.*
+2. *Disk damage, system re-installation, or mistaken deletion will result in the loss of .json file. Therefor, be sure to back up the encrypted .json file or the private key in plain text, and ensure they won’t be leaked, deleted or lost. Once lost, the wallet cannot be restored.*
 
 
-## How to import & restore a wallet
+## How to import or restore a wallet
 
- After replacing the computer or re-installing the system, it is mandatory to import or restore the existing wallet to the new installed client, as following: 
+ After replacing the computer, re-installing the system or deleting the wallet , it is mandatory to import or restore the existing wallet to the new installed client, as following: 
 
 1.On client’s [Wallet] home page, click [Import Wallet], as below:
 
 ![Image text](image/Wallet_importation.png)
 
 2.There are three ways to [Import Wallet]: private key (64 HEX), Keystore (.json) and mnemonic phrase. Let’s go through them one by one:
-
-![Image text](image/Three_type_importation.png)
 
 - **Private Key (64 HEX)**
 Input the private key of the wallet, set up a new [wallet name], and [wallet password], click [Import]. Once done successfully, the details of the new wallet imported will be displayed on the home page of [Wallet].
@@ -40,7 +38,7 @@ Input the private key of the wallet, set up a new [wallet name], and [wallet pas
 - **Keystore(.json)**
 Click [Keystore(.json)] tap,  set the name of the wallet, click [Select File] to open local resource manager, select the saved .json file, and then input the preset wallet Password, click [import], after succeeding, the newly imported wallet will be displayed on the home page of [Wallet]. 
 
-    ![Image text](image/Private_key_keystore.png)
+  ![Image text](image/Private_key_keystore.png)
 
 - **Mnemonic Phrase**
 Click [Mnemonic Phrase] tap, input the wallet’s mnemonic phrase, set new [wallet name], and [wallet password], click [Import], once succeeded, the newly imported wallet will be displayed on the home page of [Wallet]. 
@@ -48,25 +46,32 @@ Click [Mnemonic Phrase] tap, input the wallet’s mnemonic phrase, set new [wall
     ![Image text](image/Private_key_Mnemonic_phrase.png)
 
 
-## How to send and receive funds
+## How to send and receive Energon
 
 - **Send Energon**
 
-1.On the home page of [Wallet], select a  Wallet , The client will navigate to the [Wallet Detail] page, Click [Send], the client switches to the page as shown below:
+1.On the home page of [Wallet], select a  Wallet , the client will navigate to the [Wallet Detail] page，click [Send], the page is as  shown below:
 
-![Image text](image/Send_wallet.png)
+![Image text](image/wallet_detail.png)
 
-2.Select the sender, and input the receiver’s Address, set [Amount] and [fee], click [send], and the dialogue box of confirmation pops up, as shown below:
+2.Input the recipient's  Address, set [Amount] and [fee], click [send], and the dialogue box of confirmation pops up, as shown below:
 
 ![Image text](image/Send_confirm-wallet.png)
 
-3.Input the sender’s [Wallet Password], click [Submit] to submit the transaction. The progress of the transaction can be traced on the page of wallet details, as shown below:
+3.Input the sender’s [Wallet Password], click [Submit] to submit the transaction. The progress of the transaction can be traced on the panel of Transactions, as shown below:
 
 ![Image text](image/Wallet_detail_transactions.png)
 
+Of course, you can chose a faster way to Send Energon, click [Send] button in the left menu, as shown below:
+
+![Image text](image/Send.png)
+
+Select the Sender, and Input the recipient's  Address,  set [Amount] and [fee], click [send],  and the operations afterworth are same as the step 3 of “Send Energon” .
+
+
 - **Receive Energon**
 
-Click [receive], the client will display the page as below:
+Click [Receive], the client will display the page as below:
 
 ![Image text](image/QR_code.png)
 
@@ -84,7 +89,7 @@ In order to experience the function of the latest version, you need:
 
 ![Image text](image/Keystore_address.png)
 
-2.Click https://download.platon.network/0.5 to download the latest installer and reinstall it.
+2.Click https://download.platon.network/0.6 to download the latest installer and reinstall it.
 
 3.After Installation, re-create your wallet and re-apply for the test Energon through [test Energon application channel](https://developer.platon.network/#/?lang=en).
 
