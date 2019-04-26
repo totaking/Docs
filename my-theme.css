@@ -10,7 +10,12 @@
     --sidebar-nav-pagelink-background-image--active     : url('./assets/up.svg') no-repeat 210px 17px;
     --theme-color-secondary:#030418;
   }
-
+/* 
+  表格中重复表头字段问题解决
+*/
+td::before{
+	content:""!important;
+}
 .app-nav{
     position: fixed;
     top: 0;

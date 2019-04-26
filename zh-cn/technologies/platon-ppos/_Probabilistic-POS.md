@@ -203,7 +203,7 @@ type Candidate struct {
 入参：
 
 | 字段    | 类型       | 说明     |
-| --- | --- | --- |
+| :---: | :---: | :---: |
 |nodeId| [64]byte |节点ID(公钥)|
 |withdraw| uint256 |退款金额 (单位：`Energon`)|
 
