@@ -317,7 +317,7 @@ _ obj : AnyObject?                      //返回数据
 <!--- 1.1 CandidateContract -->
 
 ###  CandidateContract
-> PlatON经济模型中候选人相关的合约接口 [合约描述](/zh-cn/technologies/platon-ppos/_Probabilistic-POS.md#%E9%AA%8C%E8%AF%81%E6%B1%A0%E5%90%88%E7%BA%A6)。
+> PlatON经济模型中候选人相关的合约接口
 
 <!--- 1.1 CandidateDeposit -->
 
@@ -910,7 +910,7 @@ func GetVerifiersList(){
 
 
 ###  TicketContract
-> PlatON经济模型中票池相关的合约接口 [合约描述](/zh-cn/technologies/platon-ppos/_Probabilistic-POS.md#%e7%a5%a8%e6%b1%a0%e5%90%88%e7%ba%a6%e6%8e%a5%e5%8f%a3)。
+> PlatON经济模型中票池相关的合约接口
 
 <!--- 2.1 GetTicketPrice -->
 #### **`GetTicketPrice`**
