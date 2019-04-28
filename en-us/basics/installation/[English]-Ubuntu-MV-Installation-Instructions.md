@@ -36,10 +36,10 @@ Please refer to [here](#Dependency-package-Installation) to install related depe
 
 ```bash
 # Download
-$ wget https://download.platon.network/0.5/platon-ubuntu-amd64-0.5.0-with-mv.tar.gz 
+$ wget https://download.platon.network/0.6/platon-ubuntu-amd64-0.6.0-with-mv.tar.gz 
 
 # Decompression  
-$ tar -xvzf platon-ubuntu-amd64-0.5.0-with-mv.tar.gz 
+$ tar -xvzf platon-ubuntu-amd64-0.6.0-with-mv.tar.gz 
 ```
 
 The extracted files should be as following:
@@ -59,10 +59,10 @@ Please refer to [here](#Dependency-package-installation) to install related depe
 
 ```bash
 # Download the `.deb` package
-$ wget https://download.platon.network/0.5/platon-all-ubuntu-amd64-0.5.0.deb 
+$ wget https://download.platon.network/0.6/platon-all-ubuntu-amd64-0.6.0.deb 
 
 #installation
-$ sudo dpkg -i platon-all-ubuntu-amd64-0.5.0.deb
+$ sudo dpkg -i platon-all-ubuntu-amd64-0.6.0.deb
 ```
 
 After the installation, the binaries and other components of the package should be installed to `/usr/bin`

@@ -9,7 +9,7 @@
 
 - [PPA源](#PPA源安装)
 - [二进制包](#二进制包安装)
-- [Debian](#Debian安装)
+- [Debian](#Debian包安装)
 - [源码](#源码编译安装)
 
 
@@ -38,10 +38,10 @@ $ sudo apt-get install platon-all
 ### 2.安装PlatON客户端
 ```bash
 # 下载
-$ wget https://download.platon.network/0.5/platon-ubuntu-amd64-0.5.0-with-mv.tar.gz
+$ wget https://download.platon.network/0.6/platon-ubuntu-amd64-0.6.0-with-mv.tar.gz
 
 # 解压
-$ tar -xvzf platon-ubuntu-amd64-0.5.0-with-mv.tar.gz
+$ tar -xvzf platon-ubuntu-amd64-0.6.0-with-mv.tar.gz
 ```
 解压内容如下：
 
@@ -61,10 +61,10 @@ $ tar -xvzf platon-ubuntu-amd64-0.5.0-with-mv.tar.gz
 ```bash
 
 # 下载PlatON安装包 
-$ wget https://download.platon.network/0.5/platon-all-ubuntu-amd64-0.5.0.deb
+$ wget https://download.platon.network/0.6/platon-all-ubuntu-amd64-0.6.0.deb
 
 # 安装
-$ sudo dpkg -i platon-all-ubuntu-amd64-0.5.0.deb
+$ sudo dpkg -i platon-all-ubuntu-amd64-0.6.0.deb
 ```
 
 安装完成后，可执行程序将安装到： `/usr/bin/`。

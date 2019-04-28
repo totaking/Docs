@@ -94,7 +94,7 @@ $ ./platon attach http://localhost:6789
 [{
     caps: ["eth/62", "eth/63"],
     id: "23aa343260d06e04107d1cd9a7d12c54cc238719a1523ffe42640210c913218b5940d41511c5adb716da38844a85cdab8b7db0600d242e24168d7df10aebd324",
-    name: "PlatONnetwork/V0.5_testsn/v0.4.0-stable-0f651de0/linux-amd64/go1.11",
+    name: "PlatONnetwork/V0.6_testsn/v0.6.0-stable-0f651de0/linux-amd64/go1.11",
     network: {
       consensus: false,
       inbound: false,
