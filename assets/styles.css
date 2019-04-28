@@ -49,7 +49,8 @@ div.search {
 .sidebar .search input {
   background: none;
   background-color: rgba(255,255,255,0.5);
-  padding: 1rem;
+  padding: 0 1rem;
+  line-height:34px;
   transition: background-color 0.3s ease;
 }
 
