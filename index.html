@@ -43,7 +43,20 @@
           readyTransition : true, // default
           responsiveTables: true  // default
       },
-    
+        markdown: {
+	    renderer: {
+	      code: function(code, lang) {
+		if (lang === "tex") {
+		    return (
+		    '<span class="tex">'+ katex.renderToString(code, {
+			throwOnError: false
+		    })+'</span>'
+		    );
+		}
+		return this.origin.code.apply(this, arguments);
+	      }
+	    }
+	  },
 	  alias: {
 	  '/_navbar.md': '/en-us/_navbar.md',
 	  '/_sidebar.md': '/en-us/basics/_sidebar.md',
