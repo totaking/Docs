@@ -15,7 +15,7 @@
 **隐私计算**。PlatON通过叠加同态加密（HE）和安全多方计算（MPC），实现真正的隐私计算，保证输入数据以及计算逻辑本身的隐私。与依赖第三方制造商提供的可信硬件或TEE（例如SGX）进行计算完整性的可信计算相比，PlatON 上的Trustless 计算仅依赖于可证伪的密码学假设，从而在其生命周期内提供前所未有的私有数据安全性，不存在信任边界。
 ## PlatON的基本概念
 ### 节点
-<img src="zh-cn/basics/images/nodes-cn.png"  alt="nodes" />
+![nodes](./images/nodes-cn.png)
 
 PlatON 将交易执行跟区块链共识解耦，在链下构建可扩展Trustless 计算网络。因此，PlatON中的节点主要有以下几类：
 
@@ -38,7 +38,7 @@ PlatON 将交易执行跟区块链共识解耦，在链下构建可扩展Trustle
 ### 智能合约
 从技术角度看，PlatON计算网络本质上是一个去中心化的FaaS(Functions as a Service)平台，相应地，智能合约可以认为就是FaaS上的function。PlatON中的智能合约分为三类。
 
-<img src="zh-cn/basics/images/contracts-cn.png"  alt="contracts" />
+![contracts](./images/contracts-cn.png)
 
 **Wasm合约**支持高级语言开发，编译成wasm执行。触发Wasm合约的交易由共识节点打包，全网节点重复执行验证。Wasm合约的状态保存在公共账本中。
 
