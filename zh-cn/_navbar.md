@@ -7,6 +7,6 @@
 <ul>
 
 * 语言
-  * [中文](zh-cn/)
-  * [English](en-us/)
+  * [中文](zh-cn/basics/)
+  * [English](en-us/basics/)
 
